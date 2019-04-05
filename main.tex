@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+
+\usepackage[top=2.0cm]{geometry}
+\usepackage[sort&compress]{natbib}
+\usepackage{url}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage[format=hang,font=scriptsize]{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{needspace}
+\usepackage{wrapfig}
+\usepackage{csquotes}
+\usepackage{sidecap}
+\usepackage{subfloat}
+\usepackage{framed}
+\usepackage{lipsum}
+\usepackage{cleveref}
+\usepackage{subfiles}
+\usepackage[english]{isodate}
+
+\bibliographystyle{plain}
+
+\title{  Honours Project Report
+}
+\author{S\"onke W\"ohler}
+\date{\today}    
+
+\begin{document}
+  
+  \subfile{sections/Title}
+
+  \clearpage
+  
+  \abstract
+    \begingroup
+      \fontsize{8pt}{10pt}\selectfont
+    
+        \lipsum[1]
+    
+    \endgroup
+    \hrulefill
+    
+    
+    \clearpage
+    \section*{Acknowledgements}
+    \nocite{*} % remove before final submission
+    \bibliography{refs-main}
+  
+
+
+\end{document}  
