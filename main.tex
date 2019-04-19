@@ -1,7 +1,8 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{report}
 
 \usepackage[top=2.0cm]{geometry}
 \usepackage[sort&compress]{natbib}
+%\usepackage{biblatex}
 \usepackage{url}
 \usepackage{graphics}
 \usepackage{graphicx}
@@ -17,37 +18,76 @@
 \usepackage{subfloat}
 \usepackage{framed}
 \usepackage{lipsum}
-\usepackage{cleveref}
 \usepackage{subfiles}
+\usepackage{hyperref}
 \usepackage[english]{isodate}
+\usepackage{cleveref}
 
 \bibliographystyle{plain}
 
-\title{  Honours Project Report
+\title{  Derivative Analysis of Data Sets \\
+  \large BSc (Honours) Project Report
 }
-\author{S\"onke W\"ohler}
-\date{\today}    
+\author{S\"onke W\"ohler  \\
+  University of Aberdeen }
+\date{2019}    
 
 \begin{document}
   
   \subfile{sections/Title}
-
-  \clearpage
   
-  \abstract
-    \begingroup
-      \fontsize{8pt}{10pt}\selectfont
+  \subfile{sections/abstract}
+  
+  \tableofcontents
+  
+  \chapter{Introduction}
+  \label{cha:intro}
+  
+    \subfile{sections/introduction}
+  
+  \chapter{Background and Inception}
+  \label{cha:background}
+  
+    \subfile{sections/background}
+  
+  \chapter{Concepts}
+  \label{cha:concepts}
+  
+    \subfile{sections/concepts}
+  
+  \chapter{Implementation}
+  \label{cha:impl}
+  
+    \subfile{sections/implementation}
     
-        \lipsum[1]
+  \chapter{Conclusion}
+  \label{cha:conc}
+  
+    \subfile{sections/conclusions}
+  
+  \chapter{Glossary}
+  \label{cha:glossary}
+  
+    \subfile{sections/glossary}
+  
+  \chapter{User Manual}
+  \label{cha:user}
     
-    \endgroup
-    \hrulefill
+    \subfile{sections/user}
+  
+  \chapter{Maintenance Manual}
+  \label{cha:maint}
+  
+    \subfile{sections/maintenance}
+  
+  \chapter{Code as PDF}
+  \label{cha:code}
     
-    
-    \clearpage
-    \section*{Acknowledgements}
-    \nocite{*} % remove before final submission
-    \bibliography{refs-main}
+    % might be a good way to automate this
+  
+  \clearpage
+  \nocite{*} % remove before final submission
+  \bibliography{refs-main}
   
 
 

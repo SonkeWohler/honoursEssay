@@ -5,6 +5,8 @@
 *.bbl
 *.blg
 *synctex.gz
+*.toc
+*.out
 main.pdf
 
 ## Log and crash files
@@ -25,3 +27,5 @@ hs_err_pid*
 *.bat
 .mtj.tmp/
 *.ctxt
+
+## files added by GitDesktop
