@@ -2,6 +2,7 @@
 
 \usepackage[top=2.0cm]{geometry}
 \usepackage[sort&compress]{natbib}
+%\usepackage{biblatex}
 \usepackage{url}
 \usepackage{graphics}
 \usepackage{graphicx}
@@ -18,6 +19,7 @@
 \usepackage{framed}
 \usepackage{lipsum}
 \usepackage{subfiles}
+\usepackage{hyperref}
 \usepackage[english]{isodate}
 \usepackage{cleveref}
 
@@ -32,109 +34,56 @@
 
 \begin{document}
   
-  \begin{titlepage}
-    \begin{center}
-    \vspace*{2.0cm}
-
-    \huge
-    \textbf{Derivative Analysis of Data Sets} \\
-    \LARGE
-    BSc (Hons.) Project Report    \\
-    \vspace{1.5cm}
-    \Large
-    \textbf{S\"onke W\"oher}\\
-    \large
-    University of Aberdeen     \\
-    \vspace{1.5cm}
-    2019
-    
-    
-    \begin{figure}[h!]
-      \centering
-      \includegraphics{otherImages/abdnshield}
-      \caption*{}
-    \end{figure}
-    
-    \vfill
-    \end{center}
-    I declare that this document and the accompanying code has been composed by myself, and describes my own work, unless otherwise acknowledged in the text. It has not been accepted in any previous application for a degree. All verbatim extracts have been distinguished by quotation marks, and all sources of information have been specifically acknowledged.
-    \\\\
-    Signed: 
-    \hfill \includegraphics[height=0.78cm]{otherImages/sonkiSignature}\hspace{2.5cm}
-    \\
-    S\"onke W\"ohler \hfil \today
-  \end{titlepage} 
+  \subfile{sections/Title}
   
-  \begingroup
-    \fontsize{8pt}{10pt}\selectfont
+  \subfile{sections/abstract}
   
-      \lipsum[1]
-  
-  \endgroup
-  \hrulefill
-  
-  \section*{Acknowledgements}
-  
-  % Can also include
-    % Terminology
-    % Abbreviations
-    % Notations
-  
-  \clearpage
   \tableofcontents
   
   \chapter{Introduction}
-    % motivation
-    % intentions
+  \label{cha:intro}
+  
+    \subfile{sections/introduction}
   
   \chapter{Background and Inception}
-    % building on introduction
-    % place within bigger picture of Analysis Project
-    % clarify its role within the project 
-      % Data Format
-      % Trace by Trace Analysis (TTA)
-      % Synthetic Data?
+  \label{cha:background}
+  
+    \subfile{sections/background}
   
   \chapter{Concepts}
-    % Data Structure
-    % Trace by Trace Anaysis
-      % Points of Interest
-      % Polynomal
-      % Exponential
-    % Limitations
-      % Trigonometric
-        % Use FFT
-      % Nested Functions
-      % Noise vs Precision
-        % Typical Trade Off
-      % Processing
+  \label{cha:concepts}
+  
+    \subfile{sections/concepts}
   
   \chapter{Implementation}
-    % Technologies
-      % Issue with J11 and J in general
-    % ? Software Development
-      % ? Architectural Patterns
-      % Requirements ???
-    % Synthetic Data
-      % For testing and demonstration
-      % also useful for future maybe ? 
-    % Presentation    
-    % ? Verification ?
-      % Synthetic Data
-      % Processing ?
-      % Reliability
-        % works largely as expected
-      % ? Real Well Data 
-    % gracefully address problems (points for honesty)
+  \label{cha:impl}
+  
+    \subfile{sections/implementation}
     
   \chapter{Conclusion}
+  \label{cha:conc}
+  
+    \subfile{sections/conclusions}
+  
+  \chapter{Glossary}
+  \label{cha:glossary}
+  
+    \subfile{sections/glossary}
   
   \chapter{User Manual}
+  \label{cha:user}
+    
+    \subfile{sections/user}
   
   \chapter{Maintenance Manual}
+  \label{cha:maint}
   
-  \chapter{Code PDF}
+    \subfile{sections/maintenance}
   
+  \chapter{Code as PDF}
+  \label{cha:code}
+    
+    % might be a good way to automate this
   
   \clearpage
   \nocite{*} % remove before final submission
