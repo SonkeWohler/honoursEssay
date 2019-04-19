@@ -2,6 +2,46 @@
 % MAINTENANCE MANUAL
 \begin{document}
   
-  This manual is intended to support a developer's understanding of the Project, on how to use the current demonstration software please refer to \Cref{cha:user}
+  This manual is intended to support a developer's understanding of the Project, on how to use the current demonstration software please refer to \Cref{cha:user}.
   
+  \section{Dependencies}
+  
+    The project was implemented in \href{https://openjdk.java.net/projects/jdk/11/}{Java} v11.0.2, making use of \href{http://maven.apache.org/}{Maven} v3.6.0. Further top level dependencies, as specified in pom, are:
+    \begin{itemize}
+      \item \href{https://maven.apache.org/plugins/maven-compiler-plugin/index.html}{Apache Maven Compier Plugin} v3.8.0
+      \item \href{https://maven.apache.org/surefire/maven-surefire-plugin/}{Maven Surefire Plugin} v2.19.1
+      \item \href{https://junit.org/junit5/}{JUnit} v5.3.2 for Unit Testing
+      \item Optionally the \href{https://maven.apache.org/plugins/maven-javadoc-plugin/}{Maven Javadoc Plugin} v3.0.1
+    \end{itemize}
+    Additionally the demonstration software used makes use of \href{https://openjfx.io/}{JavaFX} v11.0.1, with pom dependencies beign the following:
+    \begin{itemize}
+      \item JavaFX Controls v11
+      \item JavaFX fxml v11
+      \item \href{https://maven.apache.org/plugins/maven-shade-plugin/}{Maven Shade Plugin} v 3.2.1
+    \end{itemize}
+  
+  \section{Packages}
+    
+    \subsection{Base}
+    
+      Contains Data Types and hellper classes that are used throughout the project and will also be used in any future additions to it. It is intended much in analogy to the \emph{java.util} package of the language, providing data types used throughout the language. 
+      \\\\
+      Most notably the DataSet family is the primary data type. It is a Collection of data points that stores and allows access to x-y data points. Rather than simply indexing each data point, they can also be accessed by their \emph{xValue}, whith DataSet mapping between the latter and the index that the \emph{yValue} of the data point is stored under. The focus is currently on the ValueDataSet, which stores data points, their classified functions and whether or not they are considered valid for analysis. On the other hand, however, NestedDataSet subclasses store entire DataSet instances and are intended for higher dimensional data (i.e. x-y-z ...) and proper storage of these.
+      \\\\
+      Additionally the Base package also contains helper classes, that perform commonly used functions such as checking if two values are approximately equal within some set precision, or taking derivatives of DataSets.
+      
+    \subsection{Generator}
+    
+      The Generator package is mostly for demonstration and testing purposes. It generates somewhat random data points based on the input, for example linear curves that become parabolic, exponential curves etc. It is capable of some gaussian noise generation, but is currently rather limited in functionality.
+      \\\\
+      In the future synthetic Data may become more significant to assess the validity of our analysis and compare it to real data, but at this time that is far away.
+      
+    \subsection{GUI}
+      
+      The guiPresentation package is solely for demonstration purposes and should be minimalist as such. It is soon to be replaced when this project is integrated in the greater framework.
+  
+  \section{List of Classes}
+    
+    A thorough description of all classes and their functionalities can be found if the javadocs. Below is a listing of all involved classes.
+    
 \end{document}
