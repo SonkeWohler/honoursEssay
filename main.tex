@@ -20,17 +20,11 @@
 \usepackage{lipsum}
 \usepackage{subfiles}
 \usepackage{hyperref}
+\usepackage[nottoc]{tocbibind}
 \usepackage[english]{isodate}
 \usepackage{cleveref}
 
 \bibliographystyle{plain}
-
-\title{  Derivative Analysis of Data Sets \\
-  \large BSc (Honours) Project Report
-}
-\author{S\"onke W\"ohler  \\
-  University of Aberdeen }
-\date{2019}    
 
 \begin{document}
   
@@ -65,30 +59,30 @@
   
     \subfile{sections/conclusions}
   
-  \chapter{Glossary}
+  \chapter*{Nomenclature}
+  \addcontentsline{toc}{chapter}{Nomenclature}
   \label{cha:glossary}
   
     \subfile{sections/glossary}
   
-  \chapter{User Manual}
+  \chapter*{User Manual}
+  \addcontentsline{toc}{chapter}{User Manual}
   \label{cha:user}
     
     \subfile{sections/user}
   
-  \chapter{Maintenance Manual}
+  \chapter*{Maintenance Manual}
+  \addcontentsline{toc}{chapter}{Maintenance Manual}
   \label{cha:maint}
   
     \subfile{sections/maintenance}
   
-  \chapter{Code as PDF}
+  \chapter*{Code as PDF}
+  \addcontentsline{toc}{chapter}{Code}
   \label{cha:code}
-    
-    % might be a good way to automate this
   
   \clearpage
-  \nocite{*} % remove before final submission
-  \bibliography{refs-main}
-  
-
+  \nocite{*} % remove before final submissio
+  \bibliography{refs/*}
 
 \end{document}  
