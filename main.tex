@@ -18,14 +18,17 @@
 \usepackage{subfloat}
 \usepackage{framed}
 \usepackage{lipsum}
-\usepackage{subfiles}
-\usepackage{hyperref}
-\usepackage[nottoc]{tocbibind}
-\usepackage[titletoc]{appendix}
 \usepackage[english]{isodate}
+\usepackage{subfiles}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage[titletoc]{appendix}
+\usepackage[nottoc]{tocbibind}
+\usepackage{hyperref}
+%\usepackage[toc]{glossaries}
 \usepackage{cleveref}
+
+%\makeglossaries
 
 \bibliographystyle{plain}
 
@@ -63,6 +66,7 @@
     \subfile{sections/conclusions}
   
   \begin{appendices}
+    \chapter{Nomenclature}
     \label{cha:glossary}
     
       \subfile{sections/glossary}

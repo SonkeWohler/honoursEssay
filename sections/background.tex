@@ -1,5 +1,7 @@
 \documentclass[main.tex]{subfiles}
 % BACKGROUND
+%
+%\newglossaryentry{poly}{name={Polynomial},description={An Algebraic Function of the form $\sum_{i=0}^{N} a_i x^i$ where $N$ is the degree of the polynomial, $a_i \in \Re$ is the i^{th} coefficient and $x$ is the independent variable.}}
 
 % rename to Background and Project
 \begin{document}
@@ -15,26 +17,51 @@
     O\&G project
     \[Depth-Temp-Data\]
     
-    \section{The Necessity of Machine Learning}
+  \section{Intended Classifications}
     
-      As is typically the case, there are many methods available to tackle the problem at hand. Machine Learning appears to be a particularly common suggestion that is used in a true myriad of applications \cite{}. Here I wish to give an overview why, in my opinion, machine learning is an unnecessarily complex solution to this somewhat simple problem, and how it will most certainly be applicable in later project stages, making use of information extracted by the methods presented here.
+    \subsection{Points of Interest}  
       
-      \subsection{The Complexity}
+    \subsection{Functions}
       
-        Talk about the unpredictability of learning. By definition ML allows the resulting software to be beyond what the human can predict. Justify this with references and distil into one thought.
+      As the intended method to detect and classify functions of this project is the derivative, only functions with characteristic derivatives can be classified. The functions listed here have different characteristics that should allow some degree of certainty when classifying them.
+      \paragraph{Polynomial} are of the form $\sum_{i=0}^{N} a_i x^i$, and represent perhaps the simplest form of functions that should be classified. 
+      \paragraph{Exponential}
+      \paragraph{Rational}
+      \paragraph{Root}
+      \paragraph{Other Allometrics}
+    
+    \subsection{What Should Not be Classified}
       
-      \subsection{The Alternative}
+      As stated previously, not all functions may be classified correctly solely based on their derivative. In particular, however, periodic and other trigonometric functions can very easily be classified using an FFT \cite{}.
+      \paragraph{Periodic}
+      \paragraph{Other Trigonometrics}
+    
+    \subsection{Combinations of Functions}
+      Combinations of functions cannot always be extracted correctly. Functions can be combined for example by nesting of the form $f(g_{(x)})$, such that each function in turn affects the derivative in different ways. With some limitations, it may be possible to remove $f$ by applying its inverse, for example by taking the \textit{natural logarithm} such that $g_{(x)}=Ln\left [ f(g_{(x)})\right ]$ if $f(g_{(x)}) = e^{g(x)}$. However, unless there are reasons to suspect this particular function then all possible inverses must be applied to find the correct one. If the function is nested more than one level the possibilities grow combinatorially. 
       
-        This is basically simple physics applied to and integrated in software. It can be based on rigorous mathematics and hence reduce complexity and testing.
+      % Also show, perhaps with proof, that this would not be any better with machine learning, as the information is basically hidden until it is unppacked.
       
-      \subsubsection*{Comparable Applications}
-      
-        \paragraph{Edge Detection} %\hspace{0pt} \\
-        also makes use of derivative \cite{}. Minor differences maybe? \\
-        Very similar example of purely mathematical analysis that then informs higher level and ML analysis.
-      
-      \subsection{The Future}
-      
-        Have ML make use of this information and classify on a higher level. This way it can make use of rigorous mathematics, but fill out the gaps that are normally filled by human expertise. Additionally this approach reduces the need to teach the machine, and hence eases the way for good ML \cite{}.
+    
+  \section{The Necessity of Machine Learning}
+  
+    As is typically the case, there are many methods available to tackle the problem at hand. Machine Learning appears to be a particularly common suggestion that is used in a true myriad of applications \cite{}. Here I wish to give an overview why, in my opinion, machine learning is an unnecessarily complex solution to this somewhat simple problem, and how it will most certainly be applicable in later project stages, making use of information extracted by the methods presented here.
+    
+    \subsection{The Complexity}
+    
+      Talk about the unpredictability of learning. By definition ML allows the resulting software to be beyond what the human can predict. Justify this with references and distil into one thought.
+    
+    \subsection{The Alternative}
+    
+      This is basically simple physics applied to and integrated in software. It can be based on rigorous mathematics and hence reduce complexity and testing.
+    
+    \subsubsection*{Comparable Applications}
+    
+      \paragraph{Edge Detection} %\hspace{0pt} \\
+      also makes use of derivative \cite{}. Minor differences maybe? \\
+      Very similar example of purely mathematical analysis that then informs higher level and ML analysis.
+    
+    \subsection{The Future}
+    
+      Have ML make use of this information and classify on a higher level. This way it can make use of rigorous mathematics, but fill out the gaps that are normally filled by human expertise. Additionally this approach reduces the need to teach the machine, and hence eases the way for good ML \cite{}.
     
 \end{document}
