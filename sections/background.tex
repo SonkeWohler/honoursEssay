@@ -95,6 +95,7 @@
       As FFT analysis has been implemented many times it is not a priority.
     
     \subsection{Combinations of Functions}
+    \label{sec:back:combFunc}
       Combinations of functions cannot always be extracted correctly. Functions can be combined for example by nesting of the form $f(g_{(x)})$, such that each function in turn affects the derivative in different ways. With some limitations, it may be possible to remove $f$ by applying its inverse, for example by taking the \textit{natural logarithm} such that $g_{(x)}=Ln\left [ f(g_{(x)})\right ]$ if $f(g_{(x)}) = e^{g(x)}$. However, unless there are reasons to suspect this particular function then all possible inverses must be applied to find the correct one. If the function is nested more than one level the possibilities grow combinatorially. 
       
       % Also show, perhaps with proof, that this would not be any better with machine learning, as the information is basically hidden until it is unppacked.
