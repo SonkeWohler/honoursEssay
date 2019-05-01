@@ -31,13 +31,13 @@
         \begin{subfigure}{0.48\linewidth}
           \centering
           \includegraphics[width=0.9\linewidth]{figures/outlierPOI}
-          \caption*{text}
+          \caption{Outliers}
           \label{fig:poi:outlier}
         \end{subfigure}
         \begin{subfigure}{0.48\linewidth}
           \centering
           \includegraphics[width=0.9\linewidth]{figures/biasPOI}
-          \caption*{text}
+          \caption{Bias}
           \label{fig:poi:bias}
         \end{subfigure}
         % leaving blanck lines helps with line-spacing and forces subfigures on separate lines
@@ -45,16 +45,16 @@
         \begin{subfigure}{0.48\linewidth}
           \centering
           \includegraphics[width=0.9\linewidth]{figures/linearPOI}
-          \caption*{text}
+          \caption{Change of FFunctionof Same Type}
           \label{fig:poi:linear}
         \end{subfigure}
         \begin{subfigure}{0.48\linewidth}
           \centering
           \includegraphics[width=0.9\linewidth]{figures/linSquPOI}
-          \caption*{text}
+          \caption{Change of Function Type}
           \label{fig:poi:linSqu}
         \end{subfigure}
-        \caption{Conceptual examples of Points of Interest (POI) marked in purple crosses over the underlying data sets in orange. }
+        \caption{Conceptual examples of different Points of Interest (POI) marked in purple crosses over the underlying data sets in orange. (\subref{fig:poi:outlier}) shows outliers in the data, single data points that are out of place. These types of POI are typically due to noise. (\subref{fig:poi:bias}) shoows a "Bias" in the data, where all data points past the POI are shifted by a constant amount. This is usually a systematic error due to a sensor issue. (\subref{fig:poi:linear}) is an example where the underlying function obviously changes in the POI. This is normally due to a physical change that depends on the phenomena that are being observed. Here only the shape of the function changes, not the type, suggesting that a physical parameter has changed, but not the underlying phenomena. (\subref{fig:poi:linSqu}) on the other hand shows an example where the type of function changes in the POI, suggesting that something has fundamentally changed in the observed phenomena.}
         \label{fig:poi}
       \end{figure}
       
