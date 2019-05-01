@@ -21,10 +21,14 @@
     
     \subsection{Points of Interest}  
       
+      At the core of this project is the identification of \textit{Points of Interest} or POI in Data Sets. A \textit{POI} is the data point at which a sudden change within the Data Set is detected. "Sudden" in the sense that it is not in accordance with the underlying pattern. For example, outliers are data points that were affected by some form of noise, like an insect passing by a visual sensor or a slammed door off-setting a seismometer sensor. As POI can describe impurities in the data they are intended to prompt higher level analysis. They may mark outliers to be simply removed, or a bias in the data that should be corrected for. 
+      \\\\
+      The most significant role of POI, however, is to point out interesting features in the data, that might reveal further information. To continue the seismometer example from above, certain rumblings in the ground may hint at far away or future earthquakes, and would prompt according warnings. These rumblings would break the silence that underlies the data recorded by this sensor. POI are intended to mark these phenomena for further analysis, either by a human or by more complex computational methods.
+      
     \subsection{Functions}
       
-      As the intended method to detect and classify functions of this project is the derivative, only functions with characteristic derivatives can be classified. The functions listed here have different characteristics that should allow some degree of certainty when classifying them.
-      \paragraph{Polynomials} are of the form $f_{(x)}=\sum_{i=0}^{N} a_i x^i$ such that $i \in \mathbb{N}^\geq$, and represent perhaps the simplest form of functions that should be classified. They are commonly used in the modelling of drag, kinetics, electric current and material properties under stress or te,mperature changes, among many others. 
+      As this project aims to make use of the derivative to classify data, only functions with characteristic derivatives can be classified. The functions listed here have different characteristics that should allow some degree of certainty when classifying them.
+      \paragraph{Polynomials} are of the form $f_{(x)}=\sum_{i=0}^{N} a_i x^i$ such that $i \in \mathbb{N}^\geq$, and represent perhaps the simplest form of functions that should be classified. They are commonly used in the modelling of drag, kinetics, electric current and material properties under stress or temperature changes, among many others. 
       \\\\
       In addition to this, a first order polynomial ($a x + b$) is a common component of many other functions, especially when considering $a=1$ and $b=0$, and as such may have considerable influence on these functions as well.
       \paragraph{Exponential} functions are any of the form $f_{(x)}= a A^{g(x)} + b$, where $g_{(x)}$ is a first order polynomial. Any such function is equivalent to $ f{(x)} =  a exp[  Ln(A) g_{(x)}  ] +b $ and should be modelled as such. 
@@ -59,6 +63,8 @@
     \subsection{The Alternative}
     
       This is basically simple physics applied to and integrated in software. It can be based on rigorous mathematics and hence reduce complexity and testing.
+      \\\\
+      This project is intended to explore an alternative to machine learning approaches, which perhaps could be more or less efficient at the tasks at hand. 
     
     \subsubsection*{Comparable Applications}
     
