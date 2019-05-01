@@ -21,6 +21,7 @@
 \usepackage{subfiles}
 \usepackage{hyperref}
 \usepackage[nottoc]{tocbibind}
+\usepackage[titletoc]{appendix}
 \usepackage[english]{isodate}
 \usepackage{amssymb}
 \usepackage{mathtools}
@@ -61,30 +62,32 @@
   
     \subfile{sections/conclusions}
   
-  \chapter*{Nomenclature}
-  \addcontentsline{toc}{chapter}{Nomenclature}
-  \label{cha:glossary}
-  
-    \subfile{sections/glossary}
-  
-  \chapter*{User Manual}
-  \addcontentsline{toc}{chapter}{User Manual}
-  \label{cha:user}
+  \begin{appendices}
+    \chapter{Nomenclature}
+%    \addcontentsline{toc}{chapter}{Nomenclature}
+    \label{cha:glossary}
     
-    \subfile{sections/user}
-  
-  \chapter*{Maintenance Manual}
-  \addcontentsline{toc}{chapter}{Maintenance Manual}
-  \label{cha:maint}
-  
-    \subfile{sections/maintenance}
-  
-  \chapter*{Code as PDF}
-  \addcontentsline{toc}{chapter}{Code}
-  \label{cha:code}
-  
-  \clearpage
-  \nocite{*} % remove before final submissio
-  \bibliography{refs/*}
+      \subfile{sections/glossary}
+    
+    \chapter{User Manual}
+%    \addcontentsline{toc}{chapter}{User Manual}
+    \label{cha:user}
+      
+      \subfile{sections/user}
+    
+    \chapter{Maintenance Manual}
+%    \addcontentsline{toc}{chapter}{Maintenance Manual}
+    \label{cha:maint}
+    
+      \subfile{sections/maintenance}
+    
+    \chapter{Code as PDF}
+%    \addcontentsline{toc}{chapter}{Code}
+    \label{cha:code}
+    
+    \clearpage
+    \nocite{*} % remove before final submission
+    \bibliography{refs/*}
+  \end{appendices}
 
 \end{document}  
