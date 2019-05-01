@@ -12,6 +12,35 @@
     % Nested Functions
     % Noise vs Precision
       % Typical Trade Off
+      
+  \section{Numerical Derivative}
+    
+    Taking the derivative in a discrete Data Set.
+    \[Matrix\]
+    Explain \textit{derivDepth} and the tails that show \textit{POI}.
+    \\\\
+    Try to accompany Tables with Graphs of the function.
+  
+  \section{Derivative Characteristics}
+    
+    By far the simplest functions to classify are \textbf{polynomials}. Any polynomial of degree $N$ will have exactly $N$ non-zero derivatives, and so it is only necessary to count the number of times that the derivative is not zero. If it never becomes zero then the data is not polynomial, or we have not taken enough derivatives.
+          
+    \begin{figure}[h]
+      \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{figures/derivPoly}
+        \caption{Polynomials}
+        \label{fig:deriv:poly}
+      \end{subfigure}
+      \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{figures/derivExp}
+        \caption{Exponential}
+        \label{fig:deriv:exp}
+      \end{subfigure}
+      \caption{Derivative patterns of (\subref{fig:deriv:poly}) polynomial and \subref{fig:deriv:exp}) exponential functions. (\subref{fig:deriv:poly}) shows a fourth order polynomial in blue ($x^4$) and its derivatives in red, a third ($x^3$), second ($x^2$) and first ($x$) order polynomial, which a "zeroth" order polynomial ($x^0$ or simply $1$) follows, but is too small do display. No further derivatives would follow. (\subref{fig:deriv:exp}) shows an exponential of the form $e^{a x}$ in blue, with $a>1$ and hence its derivatives growing larger with the level of derivative, by $a$, $a^2$ and $a^3$ respectively. (\subref{fig:deriv:exp}) will never reach a zero derivative.}
+      \label{fig:deriv}
+    \end{figure}
   
   \section{Trace by Trace Analysis}
   \subsection{Principle}
