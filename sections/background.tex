@@ -27,6 +27,37 @@
       \\\\
       The most significant role of POI, however, is to point out interesting features in the data, that might reveal further information. To continue the seismometer example from above, certain rumblings in the ground may hint at far away or future earthquakes, and would prompt according warnings. These rumblings would break the silence that underlies the data recorded by this sensor. POI are intended to mark these phenomena for further analysis, either by a human or by more complex computational methods.
       
+      \begin{figure}[h]
+        \begin{subfigure}{0.48\linewidth}
+          \centering
+          \includegraphics[width=0.9\linewidth]{figures/outlierPOI}
+          \caption*{text}
+          \label{fig:poi:outlier}
+        \end{subfigure}
+        \begin{subfigure}{0.48\linewidth}
+          \centering
+          \includegraphics[width=0.9\linewidth]{figures/biasPOI}
+          \caption*{text}
+          \label{fig:poi:bias}
+        \end{subfigure}
+        % leaving blanck lines helps with line-spacing and forces subfigures on separate lines
+        
+        \begin{subfigure}{0.48\linewidth}
+          \centering
+          \includegraphics[width=0.9\linewidth]{figures/linearPOI}
+          \caption*{text}
+          \label{fig:poi:linear}
+        \end{subfigure}
+        \begin{subfigure}{0.48\linewidth}
+          \centering
+          \includegraphics[width=0.9\linewidth]{figures/linSquPOI}
+          \caption*{text}
+          \label{fig:poi:linSqu}
+        \end{subfigure}
+        \caption{Conceptual examples of Points of Interest (POI) marked in purple crosses over the underlying data sets in orange. }
+        \label{fig:poi}
+      \end{figure}
+      
     \subsection{Functions}
       
       As this project aims to make use of the derivative to classify data, only functions with characteristic derivatives can be classified. The functions listed here have different characteristics that should allow some degree of certainty when classifying them.
