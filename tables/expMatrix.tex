@@ -1,0 +1,24 @@
+\documentclass[main.tex]{subfiles}
+% Exp
+\begin{document}
+  
+  \begin{table}[h]
+    \caption{The derivative matrix of an exponential, showing a data segment of 10 points with $base=-7$ and $step=1$. Derivatives are calculated at a precision of 0.1 i.e. differences between data or derivative points that are smaller than 0.1 are approximated to zero. This is to demonstrate the eddect of precision of data, and as a result the segment is first classified as a constant ($derivDepth=0$), before shifting to an exponential (at this step $derivDepth=\inf$), with the point at which the exponential surpasses the set precision marked as a POI ($derivDepth=-1$).}
+    \centering
+    \begin{tabularx}{0.85\textwidth}{ X | c c c c c c c c c c }
+      index & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+      xValue & -7.0 & -6.0 & -5.0 & -4.0 & -3.0 & -2.0 & -1.0 & 0.0 & 1.0 & 2.0 \\
+      \hline \hline
+      yValue & 0.0 & 0.0 & 0.0 & 0.0 & \textbf{0.1} & 0.1 & 0.4 &  1.0 & 2.7 & 7.4 \\
+      \hline
+      deriv 1 & 0.0 & 0.0 & 0.0 & \textbf{0.1} & 0.0 & 0.3 & 0.6 & 1.7 & 4.7 & 12.7 \\
+      deriv 2 & 0.0 & 0.0 & \textbf{0.1} & \textbf{-0.1} & 0.3 & 0.3 & 1.1 & 3.0 & 8.0 & 21.8 \\
+      deriv 3 & 0.0 & \textbf{0.1} & -\textbf{0.2} & \textbf{0.2} & 0.0 & 0.8 & 1.9 & 5.0 & 13.8 & 37.5 \\   
+      deriv 4 & \textbf{0.1} & \textbf{-0.3} & \textbf{0.4} & \textbf{-0.2} & 0.8 & 1.1 & 3.1 & 8.8 & 23.7 & 64.4 \\  
+      \hline
+      derivDepth & 0 & 0 & 0 & 0 & \textbf{-1} & $\inf$ & $\inf$ & $\inf$ & $\inf$ & $\inf$ \\   
+    \end{tabularx}
+    \label{tbl:mtrx:exp}
+  \end{table}
+
+\end{document}
