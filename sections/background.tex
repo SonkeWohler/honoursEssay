@@ -24,17 +24,23 @@
     \subsection{Functions}
       
       As the intended method to detect and classify functions of this project is the derivative, only functions with characteristic derivatives can be classified. The functions listed here have different characteristics that should allow some degree of certainty when classifying them.
-      \paragraph{Polynomial} are of the form $\sum_{i=0}^{N} a_i x^i$, and represent perhaps the simplest form of functions that should be classified. 
-      \paragraph{Exponential}
-      \paragraph{Rational}
-      \paragraph{Root}
-      \paragraph{Other Allometrics}
+      \paragraph{Polynomials} are of the form $f_{(x)}=\sum_{i=0}^{N} a_i x^i$ such that $i \in \mathbb{N}^\geq$, and represent perhaps the simplest form of functions that should be classified. They are commonly used in the modelling of drag, kinetics, electric current and material properties under stress or te,mperature changes, among many others. 
+      \\\\
+      In addition to this, a first order polynomial ($a x + b$) is a common component of many other functions, especially when considering $a=1$ and $b=0$, and as such may have considerable influence on these functions as well.
+      \paragraph{Exponential} functions are any of the form $f_{(x)}= a A^{g(x)} + b$, where $g_{(x)}$ is a first order polynomial. Any such function is equivalent to $ f{(x)} =  a exp[  Ln(A) g_{(x)}  ] +b $ and should be modelled as such. 
+      \\\\
+      Exponential functions are common in the physical world, with applications in population growth, radioactive decay, quantum mechanics and more. Most significantly, it is mathematically related to many other functions.
+      \paragraph{Rational} functions represent a ratio between polynomials, such that $f_{(x)}=\frac{g_{(x)}}{h_{(x)}}$. In its simplest form this is simply $f_{(x)}=\frac{1}{h_{(x)}}$, also written as $f_{(x)}=h_{(x)}^{-1}$. This is common in the strength of fields and other functions that are based on the distance from a point, due to the \textit{Inverse Square Law} \cite{}. 
+      \paragraph{Roots} are an adaptation of polynomials where $i \in \mathbb{Q}^\geq$ is allowed, with the simplest example being $f_{(x)}=\sqrt{x}$. This characteristic may be of use when attempting to classify them. They are less commonly used and of lower priority.
+      \paragraph{Allometrics} are functions of the form $f_{(x)}=\sum_{i=0}^{N} a_i x^{b_i} $ where $a_i,b_i \in \mathbb{R}$. They encompass polynomials, roots and rationals. Outside of these subtypes they are quite rare in the physical universe and are of very low priority.
     
     \subsection{What Should Not be Classified}
       
       As stated previously, not all functions may be classified correctly solely based on their derivative. In particular, however, periodic and other trigonometric functions can very easily be classified using an FFT \cite{}.
-      \paragraph{Periodic}
-      \paragraph{Other Trigonometrics}
+      \paragraph{Periodic} functions are any function that repeats itself in regular intervals, with the simplest continuous example being the \textit{sine} function of the form $a \sin(b x + c) + d$. Any periodic shape can be approximated to an arbitrary precision with a combination of \textit{sine curves}, even if the shape is discontinuous, like the \textit{square wave}. Hence, these functions are best analysed using the \textit{Fourier Transform} instead \cite{}.
+      \\\\
+      They represent many physical phenomena, as both \textit{oscillations} and \textit{waves} in turn represent many diverse phenomena. These include pendulae, quantum mechanics, fluid dynamics, elastic materials, certain circuits and many more.
+      \paragraph{Other Trigonometrics} that are not necessarily periodic include the \textit{hyperbolic function}. As their name suggests, they are a form of \textit{trigonometric function} and are best analysed similarly, making use of \textit{FFT}, despite not being periodic. In a sense they are periodic with an infinite period. 
     
     \subsection{Combinations of Functions}
       Combinations of functions cannot always be extracted correctly. Functions can be combined for example by nesting of the form $f(g_{(x)})$, such that each function in turn affects the derivative in different ways. With some limitations, it may be possible to remove $f$ by applying its inverse, for example by taking the \textit{natural logarithm} such that $g_{(x)}=Ln\left [ f(g_{(x)})\right ]$ if $f(g_{(x)}) = e^{g(x)}$. However, unless there are reasons to suspect this particular function then all possible inverses must be applied to find the correct one. If the function is nested more than one level the possibilities grow combinatorially. 
