@@ -18,7 +18,31 @@
     % ? Real Well Data 
   % gracefully address problems (points for honesty)
   
-  \section{Review}
+  \section{Data Format}
+    
+    
+    
+  \section{Architecture}
+    
+    Given the limitations of the project to the foundation of the larger project, the only real produc is what I dubbed the "Base" Module. This is a module that is intended to somewhat mirror the \textit{java.util} package, in the sense that it should be available throughout the larger project. Two other modules were prepared for demonstration purposes, the "generator" and a presentation  GUI.
+    
+    \subsection{Base Module}
+      
+      
+      
+    \subsection{Generator Module}
+      
+      The generator produces synthetic data on demand, that can be used to test as well as demonstrate the core functionality. It is entirely possible that this will remain useful in the future for exactly these reasons. However, due to its presentation only application so far only minimal quality assurance was enforced, with only superficial unit testing.
+      \\\\
+      The module makes use of some pseudo randomness, though scaffolding is present to allow reseeding and hence improving the randomness. Any of the classifiable functions can be generated, with adjustable noise and an arbitrary number of biases optional. The parameters that define the shape of the specified functions are defined by the aforementioned randomness, as well as the order in which functions are generated.
+      \\\\
+      For presentation purposes the module also contains a an adapter for the presentation GUI that could be reused.
+      
+    \subsection{GUI}
+      
+      The current GUI is only intended to allow university presentations and will be archived after this project. For the larger Oil and Gas project a GUI has been developed by another developer in JavaScript, but not well adapted or in time to be used for my university demonstrations. This GUI has been developed in JavaFX11 from a template that was available from a previous project.
+      
+  \section{Requirement Review}
     what requirements were fulfilled, what stalled?\\
     May be more appropriate in conclusion.
   
