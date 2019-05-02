@@ -24,6 +24,29 @@
       Data by curtecy of HyperDap.}
       \label{fig:well}
     \end{figure}
+  
+    \subsection{Requirements and Objective}
+      
+      Functional Requirements are large left open, allowing me to freely explore the possibilities. Additionally, this project is only the first phase in a larger project. The larger project should, in short, be able to identify different physical phenomena that occur in Oil and Gas wells, based on the data available from these wells. Correct and timely identification has the potential to pre-empt structural damage that would impede production, as well as shed light on yet illusive processes that, at this time, very little data is available for.
+      \\\\
+      Based on examples of the available data and the appearance of these phenomena in the data, it was pointed out by a number of future project participants, that in most of these phenomena the derivative of the data may largely provide all the necessary information to at least pinpoint these phenomena and mark them for further analysis. Given the simplicity of numerical derivatives it was decided that this would be explored first.
+      \\\\ 
+      This project is to provide an assessment of the viability of a derivative based analysis of the available data, and create a prototype software that can serve as the foundation for further analysis. As such the following functional Requirements were agreed:
+      
+      \begin{enumerate}
+        \item \label{it:requ:classify} Create software that can classify data sets into mathematical types.
+        \item \label{it:requ:recAnalysis} Provide recommendations to expand and build on this analysis.
+        \item \label{it:requ:recQual} Provide recommendations to improve the quality of classification.
+        \item \label{it:requ:data} Create a prototype framework for the data to be represented internally, independently from the customer's data representation.
+        \item  \label{it:requ:interp} Begin to build on data classification to extract further information from the data.
+      \end{enumerate}
+      
+      While Requirement \ref{it:requ:recQual} mostly refers to the software's ability to deal with noise, it also hints at possible processing and memory improvements.
+      \\\\
+      Particularly Requirement \ref{it:requ:interp} remained intentionally vague, as at the time the nature of this further analysis was unknown (hence Requ. \ref{it:requ:recAnalysis}.
+      
+    
+    \subsection{Data Format}
     
   \section{Intended Classifications}
     
