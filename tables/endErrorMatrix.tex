@@ -1,0 +1,23 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+  
+  \begin{table}[h]
+    \centering
+    \caption{text}
+    \begin{tabularx}{0.65\linewidth}{ X | c c c c c c }
+      index & 0 & 1 & 2 & 3 & 4 & 5 \\
+      xValue & 0.0 & 1.0 & 2.0 & 3.0 & 4.0 & 5.0 \\
+      \hline \hline
+      yValue & 0.0 & 1.0 & 8.0 & 27.0 & 64.0 & 125.0 \\
+      \hline
+      deriv 1 & 1.0 & 7.0 & 19.0 & 37.0 & 61.0 & \textbf{X} \\
+      deriv 2 & 6.0 & 12.0 & 18.0 & 24.0 & \textbf{X} & \textbf{X} \\
+      deriv 3 & 6.0 & 6.0 & 6.0 & \textbf{X} & \textbf{X} & \textbf{X} \\
+      deriv 4 & 0.0 & 0.0 & \textbf{X} & \textbf{X} & \textbf{X} & \textbf{X} \\
+      deriv 5 & 0.0 & \textbf{X} & \textbf{X} & \textbf{X} & \textbf{X} & \textbf{X} \\
+      \hline
+      derivDepth & 3  & 3 & 3 & 2 & 1 & 0 \\
+    \end{tabularx}
+  \end{table}
+  
+\end{document}

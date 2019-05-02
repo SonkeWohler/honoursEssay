@@ -1,11 +1,28 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
   
-  \section{Requirements and Immediate Improvements}
+  \section{Requirements and Improvements}
     
     \subsection{Requirement Review}
       
+      It should likely be argued that the software requirements were not very detailed, due to lack of direct contact with the customer. As such all non-functional requirements were satisfied. This did place some constraints on the software, but it is at this point not very foreseeable just how limiting these decisions will be. Implementation thus far has not been very mathematically challenging. Luckily a powerful Linear Algebra Library is available in Java 11 \cite{} that would continue to satisfy functional requirements if it becomes necessary.
+      \\\\
+      The core requirement has been fulfilled, to produce a function classifier based on calculus. However, at this time no further data is extracted. Very likely, this will make use of Regression, and largely be a copy of the involved mathematics.
+      \\\\
+      As suggested in the project requirements, by-enlarge thus far the software is a prototype that proves the concept and is build to be improved upon.
+      
     \subsection{Known Issues}
+      
+      The only currently significant issue relates to the exponential function classification, although it is possible that similar issues will come up with rational and other functions if they are not addressed.
+      
+      \subfile{tables/endErrorMatrix}
+      
+      There are a number of known display issues, all of which are trivial. Given the temporary nature of the current GUI this is expected.
+      \begin{itemize}
+        \item Selecting "Bias" and/or "Noise" without any elected functions leads to an Exception that is handled by JavaFX. The application continues as normal, but no data is generated in response to the buggy request.
+        \item The classification graph shows unnecessary lines and at times draws them acrosss the graph. This is entirely due to the way LineCharts are handled by JavaFX and cannot be addressed.
+        \item Spamming the "Execute" Button quickly enough while several or many data points are being generated leads to an unhandled JavaFX exception that breaks the application.
+      \end{itemize}
       
     \subsection{Immediate Next Steps}
       
