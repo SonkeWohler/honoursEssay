@@ -1,22 +1,8 @@
 \documentclass[main.tex]{subfiles}
 % IMPLEMENTATION
 \begin{document}
-  % Technologies
-    % Issue with J11 and J in general
-  % ? Software Development
-    % ? Architectural Patterns
-    % Requirements ???
-  % Synthetic Data
-    % For testing and demonstration
-    % also useful for future maybe ? 
-    % Presentation    
-  % ? Verification ?
-    % Synthetic Data
-    % Processing ?
-    % Reliability
-    % works largely as expected
-    % ? Real Well Data 
-  % gracefully address problems (points for honesty)
+  
+  In this chapter I hope to give a conceptual overview of the technological state of the software. For details please consult the \textit{javadoc}.
   
   \section{Data Format}
     \label{sec:impl:data}
@@ -33,16 +19,28 @@
       \label{fig:dataSetFam}
     \end{SCfigure}
     
+    \subsection{Versatility}
+    
+      The DataSet classes were kept as versatile as possible such that future development should not be impeded by design decisions at this point. 
+      \\\\
+      They extend \textit{java.util.Collection} in order to take advantage of its iterator qualities, enforce well established architectural patterns and help clarify its design and use. However, implementing the \textit{java.uti.List} interface, while at first glance appearing more sensible due to the ordered nature of \textit{DataSet} entries, would create conflicts between the intended use of  \textit{DataSet} and the specified characteristics of a \textit{List}.
+      \\\\
+      Unless required by the set's functionality, any class can be stored in it, in order to minimise unnecessary constraints. This is in spite of the fact that for most if not all applications the \textit{Double} class will likely be the most advantageous. For example, while currently there is no reason to make use of GPU processing, this would likely require the use of \textit{Float} instead. Also, non-numerical classes are currently allowed in those classes that do not specifically deal with numerical entries. This is for the most part to allow the nesting of \textit{DataSet} objects, but theoretically offers much more functionality.
+    
     \subsection{Principle}
       
-      $xValue=base+index*step$
+      The core functionality of \textit{DataSet} classes is the ordering of their entries by their independent variable. Usually this variable is denoted $x$ or here \textit{xValue}. Entries can be assigned to a particular \textit{xValue}, potentially overriding the existing entry. More importantly, they can be retrieved by their \textit{xValue} efficiently. 
+      \\\\
+      \textit{DataSet} does this very simply by mapping between the \textit{index} of an entry and its \textit{xValue}. Internally entries are stored in an \textit{ArrayList}, with their \textit{xValue} defined as $xValue= base + index * step$. The \textit{DataSet} is assigned immutable $base$ and $step$ values such that all entries follow the same pattern. As such they can be retrieved by their \textit{xValue} by mapping back to their index. \Cref{fig:dataSetGraph} shows an example where the data points can be easily stored in this way. In essence data points are expected to be a distance of $step$ apart, starting with the first value at $xValue=base$. If the data points are not exactly a constant distance apart, but only approximately, a \textit{ValuePair} can be used as an entry, that stores both the \textit{yValue} and \textit{xValue}. The \textit{PairDataSet} is intended to facilitate this use.
+      \\\\
+      This principle can be extended to not only store one dimentional data points, but to store entire \textit{DataSet} objects in this manner. As stated previously, this allows the modelling of multi dimensional data. While this \textit{NestedDataSet} use is not very far developed at this time, it is intended to both allow storing and retrieving data in this fashion, as but most importantly to process it efficiently. Of particular interest will be to implement an iteration functionality that is capable of iterating and processing entries across different \textit{ValueDataSets} that are nested within a \textit{NestedValueDataSet}.
       
-    \subsection{Storing Values}
-      
-      
-      
-    \subsection{Higher Dimensions}
-      
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\linewidth]{figures/dataSetGraph}
+        \caption{A conceptual example of a set of data points that can be stored in a \textit{DataSet}. In this example it would be initialised with $base=21$ and $step=3$, while the $precision$ should be chosen to reflect the presence of noise.}
+        \label{fig:dataSetGraph}
+      \end{figure}
       
       
   \section{Architecture}
