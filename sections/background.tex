@@ -34,19 +34,30 @@
       This project is to provide an assessment of the viability of a derivative based analysis of the available data, and create a prototype software that can serve as the foundation for further analysis. As such the following functional Requirements were agreed:
       
       \begin{enumerate}
-        \item \label{it:requ:classify} Create software that can classify data sets into mathematical types.
-        \item \label{it:requ:recAnalysis} Provide recommendations to expand and build on this analysis.
-        \item \label{it:requ:recQual} Provide recommendations to improve the quality of classification.
-        \item \label{it:requ:data} Create a prototype framework for the data to be represented internally, independently from the customer's data representation.
-        \item  \label{it:requ:interp} Begin to build on data classification to extract further information from the data.
+        \item \label{it:requ:classify} (Must) Create software that can classify data sets into mathematical types.
+        \item \label{it:requ:recAnalysis} (Must) Provide recommendations to expand and build on this analysis.
+        \item \label{it:requ:recQual} (Should) Provide recommendations to improve the quality of classification.
+        \item \label{it:requ:data} (Should) Create a prototype framework for the data to be represented internally, independently from the customer's data representation.
+        \item  \label{it:requ:interp} (Could) Begin to build on data classification to extract further information from the data.
       \end{enumerate}
       
       While Requirement \ref{it:requ:recQual} mostly refers to the software's ability to deal with noise, it also hints at possible processing and memory improvements.
       \\\\
       Particularly Requirement \ref{it:requ:interp} remained intentionally vague, as at the time the nature of this further analysis was unknown (hence Requ. \ref{it:requ:recAnalysis}.
       
-    
-    \subsection{Data Format}
+      Non-functional requirements were sightly more specific, to the extend to which the larger project was already defined.
+      
+      \begin{enumerate}
+        \item \label{it:requ:java} The software must be in Java11 if possible, and usable from a Java 11 environment if that is not possible.
+        \item \label{it:requ:calculus} The method of analysis should make use of calculus and focus on low level computation. Metaphorically it should provide the building blocks for further analysis.
+        \item \label{it:requ:license} The software must be free of licence fees or other costs due to intellectual property.
+        \item \label{it:requ:deppend} Dependencies should be kept to a minimum whenever possible.
+        \item \label{it:requ:softDevel} Best software engineering practice should be followed to allow the software to be further developed without spending time on quality improvement.        
+      \end{enumerate}
+      
+      Requirements \ref{it:requ:java}, \ref{it:requ:license} and \ref{it:requ:deppend} in combination meant that, for the most part, very few  libraries could be taken advantage of. Much of the mathematics, in particular that will be recommended for further analysis, can be outsourced to various libraries, but most of these are not available for Java, and those that are have been lagging behind in updating to 11. 
+      \\\\
+      While Requirement \ref{it:requ:softDevel} may appear rather redundant, given the exploratory nature of the project it simply means that not all considerations should be focused on experimentation, but good quality software is ultimately the goal, which makes use of the methods that I am experimenting with.
     
   \section{Intended Classifications}
     
