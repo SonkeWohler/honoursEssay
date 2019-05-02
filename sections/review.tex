@@ -1,0 +1,29 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+  
+  \section{Requirements and Immediate Improvements}
+    
+    \subsection{Requirement Review}
+      
+    \subsection{Known Issues}
+      
+    \subsection{Immediate Next Steps}
+      
+      Now that the concept appears to be solid and rather well known its implementation should be completed first. At least rational functions still have to be added to the analysis, which in turn would contain a number of different possible functions. Root and logarithmic functions would follow close behind. All of these are likely to encounter similar issues to the exponential functions.
+      \\\\
+      Subsequently, trigonometric data could be classified by making use of an \textit{FFT} library to find periodic sections within the data. 
+        
+  \section{Conceptual Recommendations}
+    
+    The obvious next step is to actually extract the function definitions from the data i.e. to generate an equation. This will have to make use of various types of regression to extract the optimal parameters. In addition, with a somewhat well defined function, it is possible to compare adjacent segments of different function types, and for example associate the asymptode of an exponential with that exponential, rather than regarding it as an entirely separate function.
+    \\\\
+    The ultimate intention would be two fold. On the one hand this will provide an analytical representation of the physical phenomena in the data. This may have potential applications to model various processes. However, more importantly, its automation would allow more meaningful analysis. To discuss an example, if the expected equations describing a specific Oil Well are known detailed enough, any discrepancies will be evidence of changes, potentially to the structure or reliability of the well.
+    \\\\
+    Currently it appears that relatively good equations to describe the data sets serve as an abstraction to inform Machine Learning functionality, which then could gradually take on the role of the human.
+    % maybe it is recommendable to have fewer but more powerful and meaningful inputs for machine learning.
+    
+  \section{Implementation Recommendations}
+    
+    ???
+    
+\end{document}
