@@ -50,6 +50,7 @@
       Provided that the data segment is polynomial the POI-tail can simply be identified by checking for non-zero entries in the matrix at a depth beyond the \textit{derivDepth} already assigned to the data point. 
     
     \subsection{Nested Functions}
+      \label{sec:con:nest}
       
       As stated in \cref{sec:back:combFunc}, there are limitations to the amount of analysis that can be performed on combined functions. However, the most common functions can be easily covered, by applying their inverse after classifying a segment as not-polynomial. First the Natural Logarithm is applied to the data segment in question, which is then analysed again. If it is classified as a polynomial at this stage the original data segment can be marked as exponential. While further analysis is not yet implemented, similar processes will allow classification of rational and root functions, as well as logarithmic functions.
       \\\\

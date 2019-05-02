@@ -3,7 +3,8 @@
   
   \begin{table}[h]
     \centering
-    \caption{text}
+    \caption{Illustration of the \textit{end-tail} effect within the derivative matrix. Given a number of calculated derivatives of $maxDepth$ (here $=5$), the last $maxDepth$ data points are vulnerable to false interpretations due to the end-tail, shows as the bold \textbf{X}. These derivative values default to zero in the implemented derivative matrix, but conceptually represent unknown values that should be considered undefined. This beginns with the very last data point that has no successive data point to allow calculating its derivative. Much like the POI-tail, thiss propagates through the matrix to affect the last $maxDepth$ data points.\\
+    Note how the derivDepth changes towards the last data point. The recommended and implemented solution is to "smooth over" these data pints and simply assign the last well defined derivDeppth (here that of $index=0$ which is $3$).}
     \begin{tabularx}{0.65\linewidth}{ X | c c c c c c }
       index & 0 & 1 & 2 & 3 & 4 & 5 \\
       xValue & 0.0 & 1.0 & 2.0 & 3.0 & 4.0 & 5.0 \\

@@ -1,7 +1,7 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
   
-  \section{Requirements and Improvements}
+  \section{Requirements and Issues}
     
     \subsection{Requirement Review}
       
@@ -9,7 +9,7 @@
       \\\\
       The core requirement has been fulfilled, to produce a function classifier based on calculus. However, at this time no further data is extracted. Very likely, this will make use of Regression, and largely be a copy of the involved mathematics.
       \\\\
-      As suggested in the project requirements, by-enlarge thus far the software is a prototype that proves the concept and is build to be improved upon.
+      As suggested in the project requirements, thus far the software is a prototype that proves the concept and is build to be improved upon.
       
     \subsection{Known Issues}
       
@@ -18,10 +18,14 @@
       The only other currently significant issues relate to the exponential function classification, although it is possible that similar issues will come up with rational and other functions if they are not addressed. There are two such issues.
       \\\\
       The less significant one marks the last ten data points as "invalid" ($derivDepth=-5$) in otherwise correctly interpreted exponential data. This has to do with the end-tail  of zero derivatives that is illustrated in \Cref{tbl:mtrx:endError}. At the end of the matrix the derivative cannot be calculated as there is no succeeding data point to calculate it relative to. As such functions may not be classified correctly, and the software simply assign a common derivDepth to the last 10 data points to smooth this out. However, in exponentials this smoothing does not work correctly, perhaps because after taking the logarithm and recalculating the derivative matrix the last points are marked as POI, which in the smoothing are converted to invalid points.
+      \\\\
+      More significantly, however, is the way that exponential data is interpreted in its "constant regime". As stated in \Cref{sec:con:nest}, exponentials come infinitely close to zero in their asymptote, and this segment is classified as a constant function. At this stage there is nothing wrong with this, as higher level analysis can easily address this issue. However, ever so often this segment remains undefined ($derivDepth=-5$). This likely relates to the fact that this segment is usually towards the left end of the data set, as this only occurs within the first ten data points (the $maxDeppthh$ of the derivative Matrix). 
+      \\\\
+      None of these issues appear to have a major impact on the classifier, and those relating to the exponential only affect the last and potentially first ten data points, which is a negligible quantity compared to the total number of data points that are expected in the software's application.
       
       \subfile{tables/endErrorMatrix}
       
-      There are a number of known display issues, all of which are trivial. Given the temporary nature of the current GUI this is expected.
+      There are also a number of known display issues, all of which are trivial. Given the temporary nature of the current GUI this is expected.
       \begin{itemize}
         \item Selecting "Bias" and/or "Noise" without any elected functions leads to an Exception that is handled by JavaFX. The application continues as normal, but no data is generated in response to the buggy request.
         \item The classification graph shows unnecessary lines and at times draws them acrosss the graph. This is entirely due to the way LineCharts are handled by JavaFX and cannot be addressed.
@@ -42,9 +46,5 @@
     \\\\
     Currently it appears that relatively good equations to describe the data sets serve as an abstraction to inform Machine Learning functionality, which then could gradually take on the role of the human.
     % maybe it is recommendable to have fewer but more powerful and meaningful inputs for machine learning.
-    
-  \section{Implementation Recommendations}
-    
-    ???
     
 \end{document}
