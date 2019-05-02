@@ -16,12 +16,6 @@
 
   \subfile{tables/simpleMatrix}
   
-  \section{Points of Interest}
-  
-    \subfile{tables/poiMatrix}
-    
-    Explain POI-tail. Mention how it cannot be detected outside of polynomials at this time, but a variation of it can be observed.
-  
   \section{Derivative Characteristics}
     
     Due to its simplicity, most classification is best performed while making use of the polynomial classification.
@@ -46,6 +40,14 @@
     \subsection{Polynomials}
     
       By far the simplest functions to classify are \textbf{polynomials}. Any polynomial of degree $N$ will have exactly $N$ non-zero derivatives (also see \cref{fig:deriv:poly}), and so it is only necessary to count the number of times that the derivative is not zero i.e. the \textit{derivDepth}. If it never becomes zero then the data is not polynomial, or we have not taken enough derivatives. \Cref{tbl:mtrx:simple} shows an example of a second order polynomial being classified.
+      
+    \subsection{Points of Interest}
+      
+      Within polynomial data segments POI can be detected by a characteristic \textit{POI-tail}, as can be seen in \cref{tbl:mtrx:poi}. As in the POI the derivative changes in a way that breaks the underlying pattern, characterised by its \textit{derivDepth}, which in turn propagates through the preceding points down the depth of the matrix. Typically this will form a triangle pattern, though at times it is only a diagonal line. This line, however, will always form whenever the definition of a \textit{Point of Interest} from \cref{sec:POI} is satisfied.
+      
+      \subfile{tables/poiMatrix}    
+      
+      Provided that the data segment is polynomial the POI-tail can simply be identified by checking for non-zero entries in the matrix at a depth beyond the \textit{derivDepth} already assigned to the data point. 
     
     \subsection{Nested Functions}
       
@@ -56,8 +58,22 @@
       \subfile{tables/expMatrix}
       
   \section{Precision}
+    
+    In the context of this method, precision largely refers to the point at which differences between two data points are ignored. \Cref{tbl:mtrx:exp} makes use of a precision of $0.1$, for example, and as a result any data points or derivative values that are compared will produce zero whenever their difference is smaller than $0.1$. On the one hand higher precision would allow the method to more accurately classify functions. However, this accuracy is limited by the data quality. If the noise is too great then the method begins to classify order in the chaos, as is common when overstraining ML algorithms \cite{}. 
+    \\\\
+    Even in the final implementation precision is simply the amount of difference below which two values can be considered equal and hence their slope becomes zero. So long as noise does not exceed this value there should be no issue in ignoring it, while noise above this value would be classified as outlier \textit{POI}. As floating point errors are always negligible in comparison to noise in data, this also protects the software from running into floating point related issues.
+%    \\\\
+%    Naturally, precision poses a balancing problem between noise robustness and analytic power.
+%    
+%    Example table with too little precision
   
-
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.6\linewidth]{figures/lowPrec}
+      \caption{A hypothetical linear function that generates a data set (both orange), compared to a low precision setting (upper and lower bound in purple). When taking the derivative between points, any two points between the upper and lower bound are considered equal and will produce a zero derivative. Here this leads to a classification to a constant, as no difference between ppoints is detected.}
+      % demonstrate noise
+      \label{fig:lowPrec}
+    \end{figure}
   
   
 \end{document}
