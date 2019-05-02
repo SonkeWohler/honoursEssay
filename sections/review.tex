@@ -13,7 +13,11 @@
       
     \subsection{Known Issues}
       
-      The only currently significant issue relates to the exponential function classification, although it is possible that similar issues will come up with rational and other functions if they are not addressed.
+      A possible improvement, listed as an issue at this time, relates to the precision when calculating the slope between data points when this is close to zero. Currently the value is approximated to zero when the two yValues are close together, and then the slope is calculated normally, based on xValue and yValue differences. The former could be taken into account when applying the precision as well.
+      \\\\
+      The only other currently significant issues relate to the exponential function classification, although it is possible that similar issues will come up with rational and other functions if they are not addressed. There are two such issues.
+      \\\\
+      The less significant one marks the last ten data points as "invalid" ($derivDepth=-5$) in otherwise correctly interpreted exponential data. This has to do with the end-tail  of zero derivatives that is illustrated in \Cref{tbl:mtrx:endError}. At the end of the matrix the derivative cannot be calculated as there is no succeeding data point to calculate it relative to. As such functions may not be classified correctly, and the software simply assign a common derivDepth to the last 10 data points to smooth this out. However, in exponentials this smoothing does not work correctly, perhaps because after taking the logarithm and recalculating the derivative matrix the last points are marked as POI, which in the smoothing are converted to invalid points.
       
       \subfile{tables/endErrorMatrix}
       
