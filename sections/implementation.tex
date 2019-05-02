@@ -19,16 +19,43 @@
   % gracefully address problems (points for honesty)
   
   \section{Data Format}
+    \label{sec:impl:data}
     
+    In order to correctly process data sets a family of dedicated \textit{java.util.Collection} implementations has been designed. Any \textit{DataSet} class holds a list of elements ordered by their position on an independent variable axis. This allows storing for example data points of a function $f(x)$ while allowing efficient access to the value mapping to $x=5$, without the need to search the list of data points directly.
     
+    \begin{SCfigure}[][h]
+      \centering
+      \includegraphics[width=0.55\linewidth]{figures/dataSetFamily}
+      \captionsetup{format=plain, indention=1.0cm}
+      \caption{The DataSet family used to store information on lists of data points. The family is split between the Value Branch (left) and the Nested Branch (right). The former is used to directly store one dimensional lists of data points, while the latter is used to store other DataSet objects and hence allow theoretically infinite dimensions. \\
+      Only the fields that each class contains are shown, with functionality based on these and the classes' objectives omitted. See \Cref{cha:maint} for further details. \\
+      Note that one dimensional means that there is one independent variable.}
+      \label{fig:dataSetFam}
+    \end{SCfigure}
     
+    \subsection{Principle}
+      
+      $xValue=base+index*step$
+      
+    \subsection{Storing Values}
+      
+      
+      
+    \subsection{Higher Dimensions}
+      
+      
+      
   \section{Architecture}
     
-    Given the limitations of the project to the foundation of the larger project, the only real produc is what I dubbed the "Base" Module. This is a module that is intended to somewhat mirror the \textit{java.util} package, in the sense that it should be available throughout the larger project. Two other modules were prepared for demonstration purposes, the "generator" and a presentation  GUI.
+    Given the limitations of the project to the foundation of the larger project, the only real product is what I dubbed the "Base" Module. This is a module that is intended to somewhat mirror the \textit{java.base} module architecturally, in the sense that it should be available throughout the larger project. Two other modules were prepared for demonstration purposes, the "generator" and a presentation  GUI.
     
     \subsection{Base Module}
       
-      
+      This module provides the data types that are described in \Cref{sec:impl:data} and should be used throughout the upcoming project for this reason alone. 
+      \\\\
+      In addition a number of "helper" classes are contained in this module. At this time these in particular provide the classification functionality discussed, as well as some other useful methods like a test whether two values should be considered equal within a given precision. This functionality is provided static, much like the java.util.Math functionality, for example.
+      \\\\
+      As the analysis becomes more and more complex it will quite definitely grow into a stand-alone module, though the currently existing classification is likely to remain as is. This is because it is comparatively light weight and provides information to enhance the usefulness of a DataSet. Further analysis would interpret the DataSet to a degree that all useful information is contained in the interpretation, and access to the original DataSet is no longer necessary.
       
     \subsection{Generator Module}
       
@@ -41,14 +68,7 @@
     \subsection{GUI}
       
       The current GUI is only intended to allow university presentations and will be archived after this project. For the larger Oil and Gas project a GUI has been developed by another developer in JavaScript, but not well adapted or in time to be used for my university demonstrations. This GUI has been developed in JavaFX11 from a template that was available from a previous project.
-    
-  \section{Quality Assurance and Assessment}
-     
-     \subsection{Development Timeline}
-     \subsection{Known Issues}
+      \\\\
+      In accordance with JavaFX best practice \cite{},  the gui is at its core run by a GUIMain class that initiates FX processes and the different Views. While there is only one view, the principle still applies, each screen has its own fxml defining the graphical components and a Controller class that handles the procedural aspects and communicates with the GUIMain. Additionally, handling the project's data types is decoupled to a dedicated DisplayDataSet class and other software aspects are encapsulated from JavaFX processes using Interfaces.
       
-  \section{Requirement Review}
-    what requirements were fulfilled, what stalled?\\
-    May be more appropriate in conclusion.
-  
 \end{document}
