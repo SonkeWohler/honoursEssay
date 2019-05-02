@@ -5,31 +5,22 @@
 
 % rename to Background and Project
 \begin{document}
-  % building on introduction
-  % place within bigger picture of Analysis Project
-  % clarify its role within the project 
-    % Data Format
-    % Trace by Trace Analysis (TTA)
-    % Synthetic Data?
     
-  \section{The Intended Application}
-    
-    
-    O\&G project
-    \[Depth-Temp-Data\]
-    \begin{figure}[h]
-      \centering
-      \includegraphics[width=\linewidth]{figures/wellData}
-      \caption{Temperature data from an Oil-Well in the North-Sea. Temperature is taken in approximately one meter intervals along the piping of the well, beginning on the oil rig, with 2860 data points shown. \\
-      A number of phenomena can be identified on the graph, but most importantly the entry point of the well into the sea floor at about 200m, a bias at about 2200m and a number of outliers to the right of 2500m. These phenomena can be characterised as discussed in \cref{sec:POI}. \\
-      Data by curtecy of HyperDap.}
-      \label{fig:well}
-    \end{figure}
+  It is important, to understand the significance of this project, to know that it is only the first phase in a larger project. The larger project should, in short, be able to identify different physical phenomena that occur in Oil and Gas wells, based on the data available from these wells. Correct and timely identification has the potential to pre-empt structural damage that would impede production, as well as shed light on yet illusive processes that, at this time, very little data is available for.
+  \\\\
+  \Cref{fig:well} shows a temperature-depth curve from an Oil well. This is the type of data that should be analysed. However, of each well there are several of these curves taken per day and the larger project should ultimately be able to analyse the two dimensional data sets that are created from these. 
   
-  \section{Requirements and Objective}
-    
-    Functional Requirements are large left open, allowing me to freely explore the possibilities. Additionally, this project is only the first phase in a larger project. The larger project should, in short, be able to identify different physical phenomena that occur in Oil and Gas wells, based on the data available from these wells. Correct and timely identification has the potential to pre-empt structural damage that would impede production, as well as shed light on yet illusive processes that, at this time, very little data is available for.
-    \\\\
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{figures/wellData}
+    \caption{Temperature data from an Oil-Well in the North-Sea. Temperature is taken in approximately one meter intervals along the piping of the well, beginning on the oil rig, with 2860 data points shown. \\
+    A number of phenomena can be identified on the graph, but most importantly the entry point of the well into the sea floor at about 200m, a bias at about 2200m and a number of outliers to the right of 2500m. These phenomena can be characterised as discussed in \cref{sec:POI}.}
+    \caption*{Data by curtecy of HyperDap.}
+    \label{fig:well}
+  \end{figure}
+  
+  \section{Objectives}
+  
     Based on examples of the available data and the appearance of these phenomena in the data, it was pointed out by a number of future project participants, that in most of these phenomena the derivative of the data may largely provide all the necessary information to at least pinpoint these phenomena and mark them for further analysis. Given the simplicity of numerical derivatives it was decided that this would be explored first.
     \\\\ 
     This project is to provide an assessment of the viability of a derivative based analysis of the available data, and create a prototype software that can serve as the foundation for further analysis. As such the following functional Requirements were agreed:
