@@ -6,7 +6,7 @@
 % rename to Background and Project
 \begin{document}
     
-  It is important, to understand the significance of this project, to know that it is only the first phase in a larger project. The larger project should, in short, be able to identify different physical phenomena that occur in Oil and Gas wells, based on the data available from these wells. Correct and timely identification has the potential to pre-empt structural damage that would impede production, as well as shed light on yet illusive processes that, at this time, very little data is available for.
+  It is important, in order to understand the significance of this project, to know that it is only the first phase in a larger project. The larger project should, in short, be able to identify different physical phenomena that occur in Oil and Gas wells, based on the data available from these wells. Correct and timely identification has the potential to pre-empt structural damage that would impede production, as well as shed light on yet illusive processes that, at this time, very little data is available for.
   \\\\
   \Cref{fig:well} shows a temperature-depth curve from an Oil well. This is the type of data that should be analysed. However, of each well there are several of these curves taken per day and the larger project should ultimately be able to analyse the two dimensional data sets that are created from these. 
   
@@ -14,13 +14,13 @@
     \centering
     \includegraphics[width=\linewidth]{figures/wellData}
     \caption{Temperature data from an Oil-Well in the North-Sea. Temperature is taken in approximately one meter intervals along the piping of the well, beginning on the oil rig, with 2860 data points shown. \\
-    A number of phenomena can be identified on the graph, but most importantly the entry point of the well into the sea floor at about 200m, a bias at about 2200m and a number of outliers to the right of 2500m. These phenomena should be characterised as discussed in \cref{sec:POI}. Separate regression analysis after cleaning away noise finds that the data is likely to be logarithmic at approx. 285-370m (R=0.97) and linear thereafter (R=0.96).
+    A number of phenomena can be identified on the graph, but most visibly the entry point of the well into the sea floor at about 200m (where the temperature grows sharply), a bias at about 2200m and a number of outliers to the right of 2500m. These phenomena should be characterised as discussed in \cref{sec:POI}. Separate regression analysis after cleaning away noise finds that the data is likely to be logarithmic at approx. 285-370m (R=0.97) and linear thereafter (R=0.96).
     \\\\
     Data by Curtecy of HyperDap.}
     \label{fig:well}
   \end{figure}
   
-  \section{Objectives}
+  \section{Requirement Specification}
   
     Based on examples of the available data and the appearance of these phenomena in the data, it was pointed out by a number of future project participants, that in most of these phenomena the derivative of the data may largely provide all the necessary information to at least pinpoint these phenomena and mark them for further analysis. Given the simplicity of numerical derivatives it was decided that this would be explored first.
     \\\\ 
@@ -36,13 +36,13 @@
     
     While Requirement \ref{it:requ:recQual} mostly refers to the software's ability to deal with noise, it also hints at possible processing and memory improvements.
     \\\\
-    Particularly Requirement \ref{it:requ:interp} remained intentionally vague, as at the time the nature of this further analysis was unknown (hence Requ. \ref{it:requ:recAnalysis}.
+    Particularly Requirement \ref{it:requ:interp} remained intentionally vague, as at the time the nature of this further analysis was unknown (hence Requ. \ref{it:requ:recAnalysis}).
     
     Non-functional requirements were sightly more specific, to the extend to which the larger project was already defined.
     
     \begin{enumerate}
       \item \label{it:requ:java} The software must be in Java11 if possible, and usable from a Java 11 environment if that is not possible.
-      \item \label{it:requ:calculus} The method of analysis should make use of calculus and focus on low level computation. Metaphorically it should provide the building blocks for further analysis.
+      \item \label{it:requ:calculus} The method of analysis should make use of calculus and focus on low level computation. Metaphorically it should provide the building blocks or the foundation for further analysis.
       \item \label{it:requ:license} The software must be free of licence fees or other costs due to intellectual property.
       \item \label{it:requ:deppend} Dependencies should be kept to a minimum whenever possible.
       \item \label{it:requ:softDevel} Best software engineering practice should be followed to allow the software to be further developed without spending time on preventable quality improvement.        
@@ -58,10 +58,10 @@
     
     \begin{table}[h]
       \centering
-      \caption{The timeline of the honours project broken, down into phases of up to one month. Note how before the project commenced it was intended to refactor and improve an existing physical simulation/emulation with a somewhat detailed project plan. This simulator has been a component of the \textit{intelligent Hydrate Platform} for a long time, owned by \textit{BlueGentoo}.}
+      \caption{The timeline of the honours project, broken down into phases of up to one month. Note how before the project commenced it was intended to refactor and improve an existing physical simulation/emulation with a somewhat detailed project plan. This simulator has been a component of the \textit{intelligent Hydrate Platform}, owned by \textit{BlueGentoo}. The Project Objective evolved from here due to various circumstances.}
       \begin{tabularx}{\linewidth}{ X | X c }
         \hline
-        \thead{Time Period} & \thead{Objective} & Activity \\
+        \thead{Time Period} & \thead{Objective} & \thead{Activity} \\
         \hline \hline
         \makecell*{Before \\ Late-January} & \makecell*{Refactor iHP \\ Simulator} & Planning and Research. \\ \hline
         
@@ -82,7 +82,7 @@
       \label{tbl:timeline}
     \end{table} 
     
-    \subsection{Project Objective}
+    \subsection{Shifting Objectives}
   
       Initially the Objective was to refactor and improve an existing simulation that was part of another O\&G  project, the \textit{intelligent Hydrate Platform} (iHP). Within this project it was important to emulate the behaviour of natural gas production for development and testing. The project was expected to begin development of Machine Learning components and an improved simulation would have benefited this development. However, due to lack of engagement by the customer and subsequent stalls in development, this project objective became rather infeasible, as it would have relied extensively on information from the client.
       \\\\
