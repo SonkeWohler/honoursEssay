@@ -23,7 +23,7 @@
     
       The DataSet classes were kept as versatile as possible such that future development should not be impeded by design decisions at this point. 
       \\\\
-      They extend \textit{java.util.Collection} in order to take advantage of its iterator qualities, enforce well established architectural patterns and help clarify its design and use. However, implementing the \textit{java.uti.List} interface, while at first glance appearing more sensible due to the ordered nature of \textit{DataSet} entries, would create conflicts between the intended use of  \textit{DataSet} and the specified characteristics of a \textit{List}.
+      They extend \textit{java.util.Collection} in order to take advantage of its iterator qualities, enforce well established architectural patterns and help clarify its design and use \cite{javaCollection}. However, implementing the \textit{java.uti.List} interface, while at first glance appearing more sensible due to the ordered nature of \textit{DataSet} entries, would create conflicts between the intended use of \textit{DataSet} and the specified characteristics of a \textit{List} \cite{javaList}.
       \\\\
       Unless required by the set's functionality, any class can be stored in it, in order to minimise unnecessary constraints. This is in spite of the fact that for most if not all applications the \textit{Double} class will likely be the most advantageous. For example, the \textit{PairDataSet} would not be possible as it is if the entry data type had been constrained. Also, while currently there is no reason to make use of GPU processing, if this became beneficial it would likely require the use of \textit{Float} entries instead. Also, non-numerical classes are currently allowed in those classes that do not specifically deal with numerical entries. This is for the most part to allow the nesting of \textit{DataSet} objects, but theoretically offers much more functionality.
     
@@ -46,7 +46,7 @@
       
   \section{Architecture}
     
-    Given the limitations of the project to the foundation of the larger project, the only real product is what I dubbed the "Base" Module. This is a module that is intended to somewhat mirror the \textit{java.base} module architecturally, in the sense that it should be available throughout the larger project. Two other modules were prepared for demonstration purposes, the "generator" and a presentation  GUI.
+    Given the limitations of the project to the foundation of the larger project, the only real product is what I dubbed the "Base" Module. This is a module that is intended to somewhat mirror the \textit{java.base} module architecturally, in the sense that it should be available throughout the larger project \cite{javaBase}. Two other modules were prepared for demonstration purposes, the "generator" and a presentation  GUI.
     
     \subsection{Base Module}
       
@@ -68,6 +68,6 @@
       
       The current GUI is only intended to allow university presentations and will be archived after this project. For the larger Oil and Gas project a GUI has been developed by another developer in JavaScript, but not well adapted or in time to be used for my university demonstrations. This GUI has been developed in JavaFX11 from a template that was available from a previous project.
       \\\\
-      In accordance with JavaFX best practice \cite{},  the gui is at its core run by a GUIMain class that initiates FX processes and the different Views. While there is only one view, the principle still applies, each screen has its own fxml defining the graphical components and a Controller class that handles the procedural aspects and communicates with the GUIMain. Additionally, handling the project's data types is decoupled to a dedicated DisplayDataSet class and other software aspects are encapsulated from JavaFX processes using Interfaces.
+      In accordance with JavaFX best practice \cite{bestPracticeFX},  the gui is at its core run by a GUIMain class that initiates FX processes and the different Views. While there is only one view, the principle still applies, each screen has its own fxml defining the graphical components and a Controller class that handles the procedural aspects and communicates with the GUIMain. Additionally, handling the project's data types is decoupled to a dedicated DisplayDataSet class and other software aspects are encapsulated from JavaFX processes using Interfaces.
       
 \end{document}
