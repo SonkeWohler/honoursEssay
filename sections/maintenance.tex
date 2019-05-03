@@ -107,10 +107,25 @@
       
       \subsubsection*{fxEncapsulation}
         
+        Provides encapsulation of this module to prevent JavaFX from having unnecessary access.
+        
+        \paragraph{GUIMainForFX} encapsulates \textit{GUIMain}.
+        
       \subsubsection*{charts}
+        
+        Contains classes that allow the display of data within \textit{javafx.scene.chart} enviroonments.
+        
+        \paragraph{DisplayDataSet} provides two \textit{javafx.scene.LineChart} objects and handdles the display of a \textit{ValueDataSet}, both the values it contains and their assigned classifications.
         
       \subsubsection*{views}
         
+        Contains all display screens in accordance with the \textit{Model-View-Controller} pattern specified by Oracle for \textit{JavaFX} applications.
+        
+      \subsubsection*{views.honoursMainView}  
+        
+        Contains functionality for the only screen used at this time.
+        
+        \paragraph{HonoursMainController} is the Controller class handling the java aspects of this \textit{view}.
       
       
 \end{document}
