@@ -3,7 +3,7 @@
   
   \section{Intended Classifications}
   
-    The main objective of the project is to provide a classifier that is capable of identifying the type of function that best describes the Data Set that is analysed. This may be more than one function in different segments of the Data Set. Once a function is identified it is conceptually trivial to fit an exact equasion to the data with the use of regression \cite{}. 
+    The main objective of the project is to provide a classifier that is capable of identifying the type of function that best describes the Data Set that is analysed. This may be more than one function in different segments of the Data Set. Once a function is identified there are many known methods to extract further information from the data \cite[Chapter~2]{numAnal}. 
     \\\\
     Below is a list of the different classifications that are expected of the software, and the physical significance of them.
     
@@ -50,16 +50,18 @@
     \subsection{Functions}
     
     As this project aims to make use of the derivative to classify data, only functions with characteristic derivatives can be classified. The functions listed here have different characteristics that should allow some degree of certainty when classifying them.
+    \\\\
+    For reference see \citet[Chapter~M1]{tipler} or \citet{functionsHandbook}.
     
-    \paragraph{Polynomials} are of the form $f_{(x)}=\sum_{i=0}^{N} a_i x^i$ such that $i \in \mathbb{Z}^\geq$, and represent perhaps the simplest form of functions that should be classified. They are commonly used in the modelling of drag, kinetics, electric current and material properties under stress or temperature changes, among many other applications. 
+    \paragraph{Polynomials} are of the form $f_{(x)}=\sum_{i=0}^{N} a_i x^i$ such that $i \in \mathbb{Z}^\geq$, and represent perhaps the simplest form of functions that should be classified. They are commonly used in the modelling of drag \cite[Chapter~5,13]{tipler}, kinetics \cite[Chapter~4,6]{tipler}, electric current \cite[Chapter~25]{tipler} and material properties under stress \cite[Chapter~12]{tipler} or temperature changes \cite[Chapter~20]{tipler}, among many other applications. 
     \\\\
     In addition to this, a first order polynomial ($a x + b$) is a common component of many other functions, especially when considering $a=1$ and $b=0$, and as such may have considerable influence on these functions as well.
     
     \paragraph{Exponential} functions are any of the form $f_{(x)}= a A^{g(x)} + b$, where $g_{(x)}$ is a first order polynomial. Any such function is equivalent to $ f{(x)} =  a \exp[  Ln(A) g_{(x)}  ] +b $ and should be modelled as such. 
     \\\\
-    Exponential functions are common in the physical world, with applications in population growth, radioactive decay, quantum mechanics and more. Most significantly, it is mathematically related to many other functions.
+    Exponential functions are common in the physical world, with applications in population growth, radioactive decay, quantum mechanics and more. Most significantly, it is mathematically related to many other functions \cite[Chapter~5]{modellingPrinciples}.
     
-    \paragraph{Rational} functions represent a ratio between polynomials, such that $f_{(x)}=\frac{g_{(x)}}{h_{(x)}}$ and both $g_{(x)}$ and $h_{(x)}$ are polynomial. In its simplest form this is simply $f_{(x)}=\frac{1}{h_{(x)}}$, also written as $f_{(x)}=h_{(x)}^{-1}$. This is commonly used to model the strength of fields as well as other quantities that are based on the distance from a point, due to the \textit{Inverse Square Law} \cite{}. 
+    \paragraph{Rational} functions represent a ratio between polynomials, such that $f_{(x)}=\frac{g_{(x)}}{h_{(x)}}$ and both $g_{(x)}$ and $h_{(x)}$ are polynomial. In its simplest form this is simply $f_{(x)}=\frac{1}{h_{(x)}}$, also written as $f_{(x)}=h_{(x)}^{-1}$. This is commonly used to model the strength of fields as well as other quantities that are based on the distance from a point, due to the \textit{Inverse Square Law} \cite[Chapter~11,21,26]{tipler}. 
     
     \paragraph{Roots} are an adaptation of polynomials where $i \in \mathbb{Q}^\geq$ is allowed, with the simplest example being $f_{(x)}=\sqrt{x}$. This characteristic may be of use when attempting to classify them. They are less commonly used and of lower priority.
     
@@ -67,26 +69,26 @@
     
     \subsection{What Should Not be Classified}
     
-    As stated previously, not all functions may be classified correctly solely based on their derivative. In particular, however, periodic and other trigonometric functions can very easily be classified using a \textit{Fast Fourier Transform} or \textit{FFT} \cite{}.
+    As stated previously, not all functions may be classified correctly solely based on their derivative. In particular, however, periodic and other trigonometric functions can very easily be classified using a \textit{Fast Fourier Transform} or \textit{FFT} \cite[Chapter~4]{fourierComp}.
     
-    \paragraph{Periodic} functions are any function that repeats itself in regular intervals, with the simplest continuous example being the \textit{sine} function of the form $f_{(x)}=a \sin(b x + c) + d$. Any periodic shape can be approximated to an arbitrary precision with a combination of \textit{sine curves}, even if the shape is discontinuous, like the \textit{square wave}. Hence, these functions are best analysed using the \textit{FFT} instead \cite{}.
+    \paragraph{Periodic} functions are any function that repeats itself in regular intervals, with the simplest continuous example being the \textit{sine} function of the form $f_{(x)}=a \sin(b x + c) + d$. Any periodic shape can be approximated to an arbitrary precision with a combination of \textit{sine curves}, even if the shape is discontinuous, like the \textit{square wave}. Hence, these functions are best analysed using the \textit{FFT} instead \cite[Chapter~4]{fourierComp}.
     \\\\
     They represent many physical phenomena, as both \textit{oscillations} and \textit{waves} in turn represent many diverse phenomena. These include pendulae, quantum mechanics, fluid dynamics, elastic materials, certain circuits and many more.
     
     \paragraph{Other Trigonometrics} that are not necessarily periodic include the \textit{hyperbolic function}. As their name suggests, they are a form of \textit{trigonometric function} and are best analysed similarly, making use of \textit{FFT}, despite not being periodic. In a sense they are periodic with an infinite period. 
     \\\\
-    As FFT analysis has been implemented many times it is not a priority.
+    As FFT analysis has been implemented many times it is not a priority \cite[Prologue,Preface]{fourierComp,numAnal}.
     
     \subsection{Combinations of Functions}
     \label{sec:back:combFunc}
     
-    Combinations of functions cannot always be extracted correctly. Functions can be combined for example by \textbf{Nesting} of the form $f(g_{(x)})$, such that each function in turn affects the derivative in different ways. With some limitations, it may be possible to remove $f$ by applying its inverse, for example by taking the \textit{natural logarithm} such that $g_{(x)}=Ln\left [ f(g_{(x)})\right ]$ if $f(g_{(x)}) = e^{g(x)}$. However, unless there are reasons to suspect this particular function then all possible inverses must be applied to find the correct one. If the function is nested more than one level the possibilities grow combinatorially. 
+    Combinations of functions cannot always be extracted correctly. Functions can be combined for example by \textbf{Nesting} of the form $f(g_{(x)})$, such that each function in turn affects the derivative in different ways. With some limitations, it may be possible to remove $f$ by applying its inverse, for example by taking the \textit{natural logarithm} such that $g_{(x)}=Ln\left [ f(g_{(x)})\right ]$ if $f(g_{(x)}) = e^{g(x)}$. However, unless there are reasons to suspect this particular function then all possible inverses must be applied to find the correct one. If the function is nested more than one level the possibilities grow combinatorially \cite[Chapter~M1]{tipler,functionsHandbook}. 
     
     % Also show, perhaps with proof, that this would not be any better with machine learning, as the information is basically hidden until it is unppacked.
   
   \section{The Role of Machine Learning}
     
-    ML is perhaps the most championed approach to many problems, from image recognition to automatic decision making. While ML is a very vague and broad subject, by-enlarge it boils down to the application of maths that will, often making use of randomness, find the correct solution to a problem, or at least as close as possible to it.
+    ML is perhaps the most championed approach to many problems, from image recognition to automatic decision making. While ML is a very vague and broad subject, by-enlarge it boils down to the application of maths that will, often making use of randomness, find the correct solution to a problem, or at least as close as possible to it \cite[Page~5]{definitionML}.
     \\\\
     Within the scope of the larger project that this honours project is preparing for, ML will be crucial to really automate any meaningful aspect of analysis. However, as with many solutions, this project will be multi layered. Prior to training any model of any ML approach  it is recommended and even necessary to "clean" data, which is often done by some degree of human effort. Indeed, some data cleaning methods go a step further and perform abstractions, the product of which serves as ML input. 
     \\\\
