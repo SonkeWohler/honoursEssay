@@ -1,9 +1,59 @@
 \documentclass[main.tex]{subfiles}
 % GLOSSARY
 \begin{document}
-  % Terms such as FFT
-  % maths intros?
-  % stuff like that
-%  \printglossaries
+  
+  \section{Glossary}
+  
+    \paragraph{Data Point:} A tuple of *dependent* and *independent* values that describes one place within a *Data Set*.
+    
+    \paragraph{Data Set:} \textbf{(Conceptual)} Here, an ordered set of data points, measured over an *independent variable* with one or more *dependent variables*. It is normally assumed that data points are a set distance appart on the *independent variable* axis, (see *step and base*) starting from a *base* value.  \\
+    \textbf{(Computing)} here a java class used in this project to represent a conceptual *Data Set*.
+    
+    \paragraph{Data Segment:} A subset of a *Data Set* of adjacent data points. Points are taken from the originall *Data Set*such that they can be specified within the latter by two indices that denote the beginning and end of the segment.
+    
+    \paragraph{step and base:} In a *Data Set*, *base* refers to the value of the first data point on the *independent variable* axis, from which measurement was started. Subsequent data points are a distance of *step* appart on the *independent variable* axis. As such, each data point has an *independent* value of $xVal=base+  i * step$, where $i$ is the index of the data point, with the first point having index $i=0$.
+    
+    \paragraph{Derivative Matrix:} A matrix used to assess whether a *Data Set* is polynomial or not, and to find *POI*. It consists of typically ten rowws, with the first being the data points of the *Data Set*, and subsequent rows representing the derivative of the degree equivalent to their *depth*. The first row is considered as $depth=0$ and the $0^{th}$ derivative.
+    
+    \paragraph{DerivDepth:} The *depth* to which the derivative in a point within a *Data Set* is not zero i.e. the number of non-zero derivatives in this point. Analogous to the degree of the polynomial in this point (for $derivDepth \geq 0$), but also denotes other function classifications ($\leq 0$), notably exponential ($=-2$) and undefined ($=-5$) functions, as well as \textit{POI} ($=-1$).
+  
+  \section{Acronyms}
+     
+    \paragraph{POI:} Point of Interest, the *data point* in which an unusual occurrence causes a change in pattern within a *Data Set*.
+    
+    \paragraph{ML:} Machine Learning
+    
+    \paragraph{FFT:} Fast Fourier Transform
+    
+    \paragraph{TTA:} Trace by Trace Analysis
+  
+  \section{Mathematical Symbols and Concepts}
+  
+    \subsection{Sets}
+    
+      $\mathbb{N}$: The set of **Natural** Numbers $\{1,2,3,4,5,...\}$
+      \\
+      $\mathbb{Z}$: The set of **Integers** $\{...,-2,-1,0,1,2,...\}$
+      \\
+      $\mathbb{Q}$: The set of **Rational** Numbers i.e. those of the form $\frac{a}{b}$ where $a,b \in \mathbb{Z}$
+      \\
+      $\mathbb{R}$: The set of **Real** Numbers.
+      \\
+      $X^{\geq}$: The subset of $X$ where $x \in X$ and $x\geq0$
+   
+    \subsection{Functions}
+   
+      \paragraph{Numeric:} As opposed to *Analytical*, of a function or method, making use of discrete and discontinuous values that represent, as closely as possible, the analytical equivalent. Typically used in computer simulations to tackle problems that have no, or a very complex or limited, analytical solution.
+      
+      \paragraph{Analytic:} As opposed to *Numeric*, of a function or method, being fully based on logic reasoning. These methods may typically make use only of human thought and paper or blackboard as a medium of support or communication, and do not require computation of numbers.
+        
+      \paragraph{Linear Combination:} A form of combining two or more functions by  adding them up, as in $f_{(x)}= g_{(x)} + h_{(x)}$.
+       
+      \paragraph{Trigonometric:} relating to the relationship between or mathematics of angles. Typically referring to $\sin(x)$, $\cos(x)$ or $\tan(x)$, ut also hyperbolas.
+      
+      \paragraph{Independent Variable:} Typically denoted *x*, here *xVal*, the variable that is independent of any other on a graph, function or *Data Set*. Other variables' values will be based on this variable.
+      
+      \paragraph{Dependent Variable:} typically denoted *y*, here *yVal*, is dependent on another variable, typically the *independent variable*. The value of a function or *Data Set* is a dependent variable.
+  
   
 \end{document}
