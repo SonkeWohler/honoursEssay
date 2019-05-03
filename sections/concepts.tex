@@ -2,7 +2,7 @@
 % CONCEPTS
 \begin{document}
   
-  The derivative analysis builds mainly on a matrix, beginning with the actual data values (derivative 0), followed by the derivatives along the "depth" of the matrix. This is demonstrated in \cref{tbl:mtrx:simple} with a parabola. The depth that the matrix reaches before becoming zero in a particular column defines that data point's derivative depth or \textit{derivDepth}.
+  The derivative analysis builds mainly on a matrix, beginning with the actual data values (derivative 0), followed by the derivatives along the "depth" of the matrix. This is demonstrated in \cref{tbl:mtrx:simple} with parabolic data. The depth that the matrix reaches before becoming zero in a particular column defines that data point's derivative depth or \textit{derivDepth}.
 
   \subfile{tables/simpleMatrix}
   
@@ -33,7 +33,7 @@
       
     \subsection{Points of Interest}
       
-      Within polynomial data segments POI can be detected by a characteristic \textit{POI-tail}, as can be seen in \cref{tbl:mtrx:poi}. As in the POI the derivative changes in a way that breaks the underlying pattern, characterised by its \textit{derivDepth}, which in turn propagates through the preceding points down the depth of the matrix. Typically this will form a triangle pattern, though at times it is only a diagonal line. This line, however, will always form whenever the definition of a \textit{Point of Interest} from \cref{sec:POI} is satisfied.
+      Within polynomial data segments \textit{POI} can be detected by a characteristic \textit{POI-tail}, as can be seen in \cref{tbl:mtrx:poi}. At the \textit{POI} the derivative changes in a way that breaks the underlying pattern, characterised by its \textit{derivDepth}, which in turn propagates through the preceding points down the depth of the matrix. Typically this will form a triangle pattern, though at times it is only a diagonal line. This line, however, will always form whenever the definition of a \textit{Point of Interest} from \cref{sec:POI} is satisfied.
       
       \subfile{tables/poiMatrix}    
       

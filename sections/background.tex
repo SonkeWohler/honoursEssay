@@ -54,11 +54,11 @@
     
   \section{Project Management}
   
-    While throughout the project a form of AGILE project management was upheld as much as possible, the project plan and even objectives have been subject to a number of changes (see \Cref{tbl:timeline}. This did require a degree of flexibility in project management, however, as thus far it has been a one person project this flexibility is practically guaranteed.
+    While throughout the project a form of AGILE project management was upheld as much as possible, the project plan and even objectives have been subject to a number of changes (see \Cref{tbl:timeline}). This did require a degree of flexibility in project management, however, as thus far it has been a one person project this flexibility is practically guaranteed.
     
     \begin{table}[h]
       \centering
-      \caption{The timeline of the honours project, broken down into phases of up to one month. Note how before the project commenced it was intended to refactor and improve an existing physical simulation/emulation with a somewhat detailed project plan. This simulator has been a component of the \textit{intelligent Hydrate Platform}, owned by \textit{BlueGentoo}. The Project Objective evolved from here due to various circumstances.}
+      \caption{The timeline of the honours project, broken down into phases of up to one month. Note how before the project commenced it was intended to refactor and improve an existing physical simulation/emulation with a somewhat detailed project plan in existence. This simulator has been a component of the \textit{intelligent Hydrate Platform}, owned by \textit{BlueGentoo}. The Project Objective evolved from here due to various circumstances.}
       \begin{tabularx}{\linewidth}{ X | X c }
         \hline
         \thead{Time Period} & \thead{Objective} & \thead{Activity} \\
@@ -84,11 +84,11 @@
     
     \subsection{Shifting Objectives}
   
-      Initially the Objective was to refactor and improve an existing simulation that was part of another O\&G  project, the \textit{intelligent Hydrate Platform} (iHP). Within this project it was important to emulate the behaviour of natural gas production for development and testing. The project was expected to begin development of Machine Learning components and an improved simulation would have benefited this development. However, due to lack of engagement by the customer and subsequent stalls in development, this project objective became rather infeasible, as it would have relied extensively on information from the client.
+      Initially the Objective was to refactor and improve an existing simulation that was part of another O\&G  project, the \textit{intelligent Hydrate Platform} (iHP). Within this project it was important to emulate the behaviour of natural gas production for development and testing. The project was expected to begin development of Machine Learning components and an improved simulation would have benefited this development. However, due to lack of engagement by the customer and subsequent stalls in development, this project objective became rather infeasible, as it would have relied extensively on information from the client that was not available.
       \\\\
       Initially my intention was to continue to build on my experience and research regarding synthetic data generation for the iHP, and create a flexible simulation module. This new synthetic data generator would be able to generate different data sets based on user definitions of analytical representations, with realistic and adjustable noise. The intention was to prepare a flexible simulation module that could be applied not to one but to many domains. This would have been rather ambitious, but more importantly would likely exceed the time available for this honours project. While significant progress would have been made, it is unlikely that further development would have been possible, and this unfinished project would not have been of use to anybody.
       \\\\
-      Finally, an opportunity opened up in the above mentioned \textit{HyperDap} project to help analyse large data sets of O\&G production data. This project essentially applies the inverse of the previously planned one, extracting an analytical representation from sets of real data. This project offered a number of prospects compared to the two previous plans. \textit{HyperDap} was much more forthcoming in providing information, with example data sets provided almost immediately, and my supervisor at university continuously updating me with more information provided by the client. It also offered an opportunity for the resulting software to be applied in a real world context alongside a job offer to continue development beyond the scope of this honours project.
+      Finally, an opportunity opened up in the above mentioned \textit{HyperDap} project to help analyse large data sets of O\&G production data. This project essentially applies the inverse of the previously planned one, extracting an analytical representation from sets of real data. It  offered a number of prospects compared to the two previous plans. \textit{HyperDap} was much more forthcoming in providing information, with example data sets provided almost immediately, and my supervisor at university continuously updated me with more information provided by the client. It also offered an opportunity for the resulting software to be applied in a real world context alongside a job offer to continue development beyond the scope of this honours project.
     
     \subsection{Development}
     
@@ -96,15 +96,15 @@
       \\\\
       The classification method described in \Cref{cha:conc} on the other hand was rather straight forward to implement once inception was completed. During inception, however, it was necessary to ensure the method would be conceptually sound, which would then be partially confirmed in subsequent tests.
       \\\\
-      In order to properly demonstrate the software one week in mid-April was dedicated to the development of a data generator and GUI, which would allow a user to observe the results. While these modules were intended for demonstration purposes, they proved useful in much more rigorous testing and debugging of the classifier, as it visualised its output very well.
+      In order to properly demonstrate the software one week in mid-April was dedicated to the development of a data generator and GUI, which would allow a user to observe the results of analyses by the software. While these modules were intended for demonstration purposes, they proved useful in much more rigorous testing and debugging of the classifier, as it visualised its output very well.
       \\\\
       Finally the project was subject to two types of documentation. As a component of good practice software was documented in javadoc as it was developed, with the exception of GUI components and parts of the generator, as these were intended solely for demonstration originally. In April, however, the project was documented for university marking, producing this report and a presentation. Within the latter documentation the project was reviewed and some additional tests performed.
       
       \subsubsection*{Technology Use}
         
-        For the duration of this project the same technologies were used that will likely be mandatory foor the larger project.
+        For the duration of this project the same technologies were used that will likely be mandatory for the future HyperDap project.
         
-        \paragraph{Version Control and Backup} was accomplished using \textit{GitHub} and \textit{GitDesktop} v1.6.5. The repository can be found at \href{https://github.com/SonkeWohler/analyser}{https://github.com/SonkeWohler/analyser}.
+        \paragraph{Version Control and Backup} was provided by \textit{GitHub} and \textit{GitDesktop} v1.6.5. The repository can be found at \href{https://github.com/SonkeWohler/analyser}{https://github.com/SonkeWohler/analyser}.
         
         \paragraph{The Integrated Development Environment} used was \textit{Eclipse} v4.9.0, making use of the appropriate extensions to allow proper development in Java11 and any other components, while making use of the \textit{Open JDK} v11.0.2.
         
