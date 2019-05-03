@@ -7,7 +7,7 @@
   \section{Data Format}
     \label{sec:impl:data}
     
-    In order to correctly process data sets a family of dedicated \textit{java.util.Collection} implementations has been designed. Any \textit{DataSet} class holds a list of elements ordered by their position on an independent variable axis. This allows storing for example data points of a function $f(x)$ while allowing efficient access to the value mapping to $x=5$, without the need to search the list of data points directly.
+    In order to correctly process data sets a family of dedicated \textit{java.util.Collection} implementations has been designed, dubbed the \textit{DattaSet}. Any \textit{DataSet} class holds a list of elements ordered by their position on an independent variable axis. This allows storing for example data points of a function $f(x)$ while allowing efficient access to the value mapping to $x=5$, without the need to search the list of data points directly.
     
     \begin{SCfigure}[][h]
       \centering
@@ -25,7 +25,7 @@
       \\\\
       They extend \textit{java.util.Collection} in order to take advantage of its iterator qualities, enforce well established architectural patterns and help clarify its design and use. However, implementing the \textit{java.uti.List} interface, while at first glance appearing more sensible due to the ordered nature of \textit{DataSet} entries, would create conflicts between the intended use of  \textit{DataSet} and the specified characteristics of a \textit{List}.
       \\\\
-      Unless required by the set's functionality, any class can be stored in it, in order to minimise unnecessary constraints. This is in spite of the fact that for most if not all applications the \textit{Double} class will likely be the most advantageous. For example, while currently there is no reason to make use of GPU processing, this would likely require the use of \textit{Float} instead. Also, non-numerical classes are currently allowed in those classes that do not specifically deal with numerical entries. This is for the most part to allow the nesting of \textit{DataSet} objects, but theoretically offers much more functionality.
+      Unless required by the set's functionality, any class can be stored in it, in order to minimise unnecessary constraints. This is in spite of the fact that for most if not all applications the \textit{Double} class will likely be the most advantageous. For example, the \textit{PairDataSet} would not be possible as it is if the entry data type had been constrained. Also, while currently there is no reason to make use of GPU processing, if this became beneficial it would likely require the use of \textit{Float} entries instead. Also, non-numerical classes are currently allowed in those classes that do not specifically deal with numerical entries. This is for the most part to allow the nesting of \textit{DataSet} objects, but theoretically offers much more functionality.
     
     \subsection{Principle}
       \label{sec:impl:dataPrinciple}
@@ -41,7 +41,7 @@
     
       \textit{DataSet} does this very simply by mapping between the \textit{index} of an entry and its \textit{xValue}. Internally entries are stored in an \textit{ArrayList}, with their \textit{xValue} defined as $xValue= base + index * step$. The \textit{DataSet} is assigned immutable $base$ and $step$ values such that all entries follow the same pattern. As such they can be retrieved by their \textit{xValue} by mapping back to their index. \Cref{fig:dataSetGraph} shows an example where the data points can be easily stored in this way. In essence data points are expected to be a distance of $step$ apart, starting with the first value at $xValue=base$. If the data points are not exactly a constant distance apart, but only approximately, a \textit{ValuePair} can be used as an entry, that stores both the \textit{yValue} and \textit{xValue}. The \textit{PairDataSet} is intended to facilitate this use.
       \\\\
-      This principle can be extended to not only store one dimentional data points, but to store entire \textit{DataSet} objects in this manner. As stated previously, this allows the modelling of multi dimensional data. While this \textit{NestedDataSet} use is not very far developed at this time, it is intended to both allow storing and retrieving data in this fashion, as but most importantly to process it efficiently. Of particular interest will be to implement an iteration functionality that is capable of iterating and processing entries across different \textit{ValueDataSets} that are nested within a \textit{NestedValueDataSet}.
+      This principle can be extended to not only store one dimentional data points, but to store entire \textit{DataSet} objects in this manner. As stated previously, this allows the modelling of multi dimensional data. While this \textit{NestedDataSet} use is not very far developed at this time, it is intended to both allow storing and retrieving data in this fashion, but most importantly to process it efficiently. Of particular interest will be to implement an iteration functionality that is capable of iterating and processing entries across different \textit{ValueDataSets} that are nested within a \textit{NestedValueDataSet}.
       
       
   \section{Architecture}
