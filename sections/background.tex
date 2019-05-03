@@ -14,7 +14,7 @@
     \centering
     \includegraphics[width=\linewidth]{figures/wellData}
     \caption{Temperature data from an Oil-Well in the North-Sea. Temperature is taken in approximately one meter intervals along the piping of the well, beginning on the oil rig, with 2860 data points shown. \\
-    A number of phenomena can be identified on the graph, but most importantly the entry point of the well into the sea floor at about 200m, a bias at about 2200m and a number of outliers to the right of 2500m. These phenomena can be characterised as discussed in \cref{sec:POI}.}
+    A number of phenomena can be identified on the graph, but most importantly the entry point of the well into the sea floor at about 200m, a bias at about 2200m and a number of outliers to the right of 2500m. These phenomena should be characterised as discussed in \cref{sec:POI}. Separate regression analysis after cleaning away noise finds that the data is likely to be logarithmic at approx. 285-370m (R=0.97) and linear thereafter (R=0.96).}
     \caption*{Data by curtecy of HyperDap.}
     \label{fig:well}
   \end{figure}
@@ -51,6 +51,35 @@
     \\\\
     While Requirement \ref{it:requ:softDevel} may appear rather redundant, given the exploratory nature of the project it simply means that not all considerations should be focused on experimentation, but good quality software is ultimately the goal, which makes use of the methods that I am experimenting with.
     
-  \section{Project Timeline}
+  \section{Project Management}
+  
+    While throughout the project a form of AGILE project management was upheld as much as possible, the project plan and even objectives have been subject to a number of changes (see \Cref{tbl:timeline}. This did require a degree of flexibility in project management, however, as thus far it has been a one person project this flexibility is practically guaranteed.
+    
+    \begin{table}[h]
+      \centering
+      \caption{The timeline of the honours project broken, down into phases of up to one month. Note how before the project commenced it was intended to refactor and improve an existing physical simulation/emulation with a somewhat detailed project plan. This simulator has been a component of the \textit{intelligent Hydrate Platform} for a long time, owned by \textit{BlueGentoo}.}
+      \begin{tabularx}{\linewidth}{ X | X c }
+        \hline
+        Time Period & Objective & Activity \\
+        \hline \hline
+        Before late-January & Refactor iHP Simulator & Planning and Research. \\ \hline
+        Up to mid-February & New Synthetic Data Generator & Planning and Inception \\ \hline
+        Late-February and Early March & Calculus Data Analysis & Planning, Inception and Research \\ \hline
+        March & Calculus Data Classification & Data Format R\&D \\ \hline
+        Late-March to early-April & Calculus Data Classification & Classification R\&D \\ \hline
+        Early-April & Calculus Data Classification & Finalisation of Software \\ \hline   
+        Remaining April & Calculus Data Classification & Validation, Documentation and Presentation \\ \hline
+        \hline
+      \end{tabularx}
+      \label{tbl:timeline}
+    \end{table} 
+  
+    Initially the Objective was to refactor and improve an existing simulation that was part of another O\&G  project, the \textit{intelligent Hydrate Platform} (iHP). Within this project it was important to emulate the behaviour of natural gas production for development and testing. The project was expected to begin development of Machine Learning components and an improved simulation would have benefited this development. However, due to lack of engagement by the customer and subsequent stalls in development, this project objective became rather infeasible, as it would have relied extensively on information from the client.
+    \\\\
+    Initially my intention was to continue to build on my experience and research regarding synthetic data generation for the iHP, and create a flexible simulation module. This new synthetic data generator would be able to generate different data sets based on user definitions of analytical representations, with realistic and adjustable noise. The intention was to prepare a flexible simulation module that could be applied not to one but to many domains. This would have been rather ambitious, but more importantly would likely exceed the time available for this honours project. While significant progress would have been made, it is unlikely that further development would have been possible, and this unfinished project would not have been of use to anybody.
+    \\\\
+    Finally, an opportunity opened up in the above mentioned \textit{HyperDap} project to help analyse large data sets of O\&G production data. This project essentially applies the inverse of the previously planned one, extracting an analytical representation from sets of real data. This project offered a number of prospects compared to the two previous plans. \textit{HyperDap} was much more forthcoming in providing information, with example data sets provided almost immediately, and my supervisor at university continuously updating me with more information provided by the client. It also offered an opportunity for the resulting software to be applied in a real world context alongside a job offer to continue development beyond the scope of this honours project.
+    \\\\
+    Once this objective was finally well defined initial focus was on the design and implementation of a data representation, followed by the more challenging design of the classification method outlined in \Cref{cha:conc}. In each of these phases development naturally followed a waterfall-esk AGILE model. The development of the Data Format in particular passed through a number of different variations before arriving at the basic idea discussed in \Cref{sec:impl:dataPrinciple} from which the currently implemented family of classes was developed.
     
 \end{document}

@@ -28,6 +28,7 @@
       Unless required by the set's functionality, any class can be stored in it, in order to minimise unnecessary constraints. This is in spite of the fact that for most if not all applications the \textit{Double} class will likely be the most advantageous. For example, while currently there is no reason to make use of GPU processing, this would likely require the use of \textit{Float} instead. Also, non-numerical classes are currently allowed in those classes that do not specifically deal with numerical entries. This is for the most part to allow the nesting of \textit{DataSet} objects, but theoretically offers much more functionality.
     
     \subsection{Principle}
+      \label{sec:impl:dataPrinciple}
       
       The core functionality of \textit{DataSet} classes is the ordering of their entries by their independent variable. Usually this variable is denoted $x$ or here \textit{xValue}. Entries can be assigned to a particular \textit{xValue}, potentially overriding the existing entry. More importantly, they can be retrieved by their \textit{xValue} efficiently. 
       \\\\
