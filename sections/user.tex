@@ -2,4 +2,38 @@
 % USER MANUAL
 \begin{document}
   
+  This user guide is intended to help showcase what the current software can and cannot do. For Developer information go to Appendix \ref{cha:maint}.
+  
+  \section{Running the Software}
+    
+    The demonstration software is completely contained in the run.jar that should come with this guide and requires Java 11 . With Java installed and registered in your System Path you can type 'java -jar run.jar' from commandline. This should work similarly on Linux. See below for some online guides to install java on your system:
+    \\\\
+    Java SE: \url{https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html}
+    
+    \begin{itemize}
+      \item Windows: \url{https://docs.oracle.com/en/java/javase/11/install/installation-jdk-microsoft-windows-platforms.html#GUID-61460339-5500-40CC-9006-D4FC3FBCFC0D}
+      \item Linux: \url{https://docs.oracle.com/en/java/javase/11/install/installation-jdk-linux-platforms.html#GUID-737A84E4-2EFF-4D38-8E60-3E29D1B884B8}
+      \item MAC: \url{https://docs.oracle.com/en/java/javase/11/install/installation-jdk-macos.html#GUID-2FE451B0-9572-4E38-A1A5-568B77B146DE}
+    \end{itemize}   
+    
+  \section{Demonstration}
+  
+    In the software you will see three sections. On top there are four text fields to define the data set, below you can select properties the generated data will have, and below that you will see the generated data and the analysis.
+    
+    \subsection{Define a Data Set}
+    
+      The data will be generated starting at $x=base$, the first parameter you can define. Data points will be generated a distance of \textit{step} apart, with a total number of \textit{length}.  Finally, the \textit{precision} parameter tells the analyser roughly how noisy the data can be expected to be. \textbf{This does not influence the noise that your data is generated with}, rather, it influences what noise is expected when analysing the generated data. Low precision (i.e. a high value like $50$) means that very strong noise will be ignored, but it may impact on the analyser's ability to correctly classify functions. High precision (i.e. a low value like $10^{-10}$) makes analysis very exact, but makes it extremely sensitive to noise in the data.
+    
+    \subsection{Generating Functions}
+    
+      Below the text fields you can select the function you wish to generate. You can play around with constant data, linear functions, parabolas and cubic functions on the left. These are all polynomial and very trivial to analyse. If you select more than one the data will be split between these functions with sharp transitions. In the graphs below you should be able to see these functions, and below that an analysis. Parabolic sections in the data, for example, will be marked as $3$ ($2+1$). Note, when you select more than one function, how the transition between them is marked in the second graph as $0$. This identifies it as a \textit{point of interest}, where something interesting happens and further analysis should be conducted.
+      \\\\
+      After familiarising yourself with the interface and its polynomials, you can try some options on the right. First, the bottom two options \textit{Bias} and \textit{Noise} will affect what data you are already generating. You can try generating a \textit{Constant} with some \textit{\textit{Noise}}, and you may see slight variations within the data points. Try adjusting the \textit{precision} above to see how the analyser reacts to noise at different settings.
+      \\\\
+      The \textit{Bias} option introduces a jump in the data points, something that is common when sensors are knocked off their true setting, or some other imperfection in the sensor occurs suddenly. You may call this a \textbf{systematic error}. All data points after the jump are shifted up or down by some constant value. The analyser detects this and marks the point of the jump as a \textit{point of interest} for further analysis, where it can be easily adjusted for. 
+      \\\\
+      You can see how the analyser reacts to completely random data with the \textit{Random} option. It may attempt to find some patterns in the chaos, but by enlarge should classify it as \textit{undefined} at $-5$. You can probably appreciate the role of \textit{precision} if you try setting it to \textit{100} on \textit{Random}.
+      \\\\
+      Lastly, there is an option to generate exponentiall data. The \textit{Exponential} option is not very kind to the analyser though. First of all, it is impossible to display it well in the first graph. Secondly, exponentials *level off* in a way that makes them indistinguishable from a constant value. This is a mathematical property that the analyser can do nothing about. But most significantly, it can be difficult for the analyser to handle the large number differences in the truly exponential segments of data. They may be classified as \textit{Exponential} at $-1$, but parts of it may simply be \textit{undefined}. This may have something to do with floating point precision and could be accommodated, at great cost to the processing power, with more precise data types. For the most part, however, only tends to happen in the last 10 or so Data Points and is a minor imperfection of the software.    
+    
 \end{document}
