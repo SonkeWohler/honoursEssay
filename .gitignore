@@ -8,6 +8,15 @@
 *.toc
 *.out
 main.pdf
+### glossary related
+*.glo
+*.ist
+*.glsdefs
+
+## unneeded excel files
+*.htm
+figures/excel/*_files/
+
 
 ## Log and crash files
 *.log
@@ -23,11 +32,12 @@ hs_err_pid*
 *.rar
 *.7z
 
+## microsoft related files
+~$*
+
 ## other ignore files files
 *.bat
 .mtj.tmp/
 *.ctxt
 
 ## files added by GitDesktop
-*.glo
-*.ist

@@ -6,23 +6,33 @@
 \usepackage{url}
 \usepackage{graphics}
 \usepackage{graphicx}
+\usepackage{tabularx}
 \usepackage{textcomp}
 \usepackage{gensymb}
-\usepackage[format=hang,font=scriptsize]{caption}
+\usepackage[format=hang,font=footnotesize]{caption}
+\usepackage{makecell}
 \usepackage{subcaption}
 \usepackage{placeins}
 \usepackage{needspace}
 \usepackage{wrapfig}
 \usepackage{csquotes}
-\usepackage{sidecap}
+\usepackage[leftcaption]{sidecap}
+%\usepackage{floatrow}
 \usepackage{subfloat}
 \usepackage{framed}
 \usepackage{lipsum}
-\usepackage{subfiles}
-\usepackage{hyperref}
-\usepackage[nottoc]{tocbibind}
 \usepackage[english]{isodate}
+\usepackage{subfiles}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[titletoc]{appendix}
+\usepackage[nottoc]{tocbibind}
+\usepackage{hyperref}
+%\usepackage[toc]{glossaries}
 \usepackage{cleveref}
+
+%\makeglossaries
+\renewcommand\theadfont{\large}
 
 \bibliographystyle{plain}
 
@@ -39,10 +49,15 @@
   
     \subfile{sections/introduction}
   
-  \chapter{Background and Inception}
+  \chapter{The Project}
   \label{cha:background}
   
     \subfile{sections/background}
+  
+  \chapter{Background}
+  \label{cha:concBack}
+    
+    \subfile{sections/concBackground}
   
   \chapter{Concepts}
   \label{cha:concepts}
@@ -53,36 +68,37 @@
   \label{cha:impl}
   
     \subfile{sections/implementation}
+  
+  \chapter{Review and Recommendations}
+  \label{cha:review}
+    
+    \subfile{sections/review}
     
   \chapter{Conclusion}
   \label{cha:conc}
   
     \subfile{sections/conclusions}
-  
-  \chapter*{Nomenclature}
-  \addcontentsline{toc}{chapter}{Nomenclature}
-  \label{cha:glossary}
-  
-    \subfile{sections/glossary}
-  
-  \chapter*{User Manual}
-  \addcontentsline{toc}{chapter}{User Manual}
-  \label{cha:user}
     
-    \subfile{sections/user}
-  
-  \chapter*{Maintenance Manual}
-  \addcontentsline{toc}{chapter}{Maintenance Manual}
-  \label{cha:maint}
-  
-    \subfile{sections/maintenance}
-  
-  \chapter*{Code as PDF}
-  \addcontentsline{toc}{chapter}{Code}
-  \label{cha:code}
-  
   \clearpage
-  \nocite{*} % remove before final submissio
-  \bibliography{refs/*}
+  %\nocite{*} % remove before final submission
+  \bibliography{refs/main}
+  
+  \begin{appendices}
+    \chapter{Nomenclature}
+    \label{cha:glossary}
+    
+      \subfile{sections/glossary}
+    
+    \chapter{User Manual}
+    \label{cha:user}
+      
+      \subfile{sections/user}
+    
+    \chapter{Maintenance Manual}
+    \label{cha:maint}
+    
+      \subfile{sections/maintenance}
+      
+  \end{appendices}
 
 \end{document}  

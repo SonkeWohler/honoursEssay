@@ -1,8 +1,66 @@
 \documentclass[main.tex]{subfiles}
 % GLOSSARY
 \begin{document}
-  % Terms such as FFT
-  % maths intros?
-  % stuff like that
   
+  \section{Glossary}
+  
+    \paragraph{Data Point:} A tuple of \textit{dependent} and \textit{independent} values that describes one place within a \textit{Data Set}.
+    
+    \paragraph{Data Set:} \textbf{(Conceptual)} Here, an ordered set of data points, measured over an \textit{independent variable} with one or more \textit{dependent variables}. It is normally assumed that data points are a set distance apart on the \textit{independent variable} axis, (see \textit{step and base}) starting from a \textit{base} value.  \\
+    \textbf{(Computing)} here a java class used in this project to represent a conceptual \textit{Data Set}.
+    
+    \paragraph{Data Segment:} A subset of a \textit{Data Set} of adjacent data points. Points are taken from the original \textit{Data Set} such that they can be specified within the latter by two indices that denote the beginning and end of the segment.
+    
+    \paragraph{step and base:} In a \textit{Data Set}, \textit{base} refers to the value of the first data point on the \textit{independent variable} axis, from which measurement was started. Subsequent data points are a distance of \textit{step} apart on the \textit{independent variable} axis. As such, each data point has an \textit{independent} value of $xVal=base+  i * step$, where $i$ is the index of the data point, with the first point having index $i=0$.
+    
+    \paragraph{Derivative Matrix:} A matrix used to assess whether a \textit{Data Set} is polynomial or not, and to find \textit{POI}. It consists of typically ten rows, with the first being the data points of the \textit{Data Set}, and subsequent rows representing the derivative of the degree equivalent to their \textit{depth}. The first row is considered as $depth=0$ and the $0^{th}$ derivative.
+    
+    \paragraph{DerivDepth:} The \textit{depth} to which the derivative in a point within a \textit{Data Set} is not zero i.e. the number of non-zero derivatives in this point. Analogous to the degree of the polynomial in this point (for $derivDepth \geq 0$), but also denotes other function classifications ($\leq 0$), notably exponential ($=-2$) and undefined ($=-5$) functions, as well as \textit{POI} ($=-1$).
+    
+    \paragraph{JavaFX:} An environment for GUI development, previously contained within the standard \textit{Java} distribution.
+  
+  \section{Acronyms}
+     
+    \paragraph{POI:} Point of Interest, the \textit{data point} in which an unusual occurrence causes a change in pattern within a \textit{Data Set}.
+    
+    \paragraph{ML:} Machine Learning
+    
+    \paragraph{FFT:} Fast Fourier Transform
+    
+    \paragraph{TTA:} Trace by Trace Analysis
+  
+  \section{Mathematical Symbols and Concepts}
+  
+    \subsection{Sets}
+    
+      $\mathbb{N}$: The set of \textbf{Natural} Numbers $\{1,2,3,4,5,...\}$
+      \\
+      $\mathbb{Z}$: The set of \textbf{Integers} $\{...,-2,-1,0,1,2,...\}$
+      \\
+      $\mathbb{Q}$: The set of \textbf{Rational} Numbers i.e. those of the form $\frac{a}{b}$ where $a,b \in \mathbb{Z}$
+      \\
+      $\mathbb{R}$: The set of \textbf{Real} Numbers.
+      \\
+      $X^{\geq}$: The subset of $X$ where $x \in X$ and $x\geq0$
+   
+    \subsection{Functions}
+   
+      \paragraph{Numeric:} As opposed to \textit{Analytical}, of a function or method, making use of discrete and discontinuous values that represent, as closely as possible, the analytical equivalent. Typically used in computer simulations to tackle problems that have no, or a very complex or limited, analytical solution.
+      
+      \paragraph{Analytic:} As opposed to \textit{Numeric}, of a function or method, being fully based on logic reasoning. These methods may typically make use only of human thought and paper or blackboard as a medium of support or communication, and do not require computation of numbers.
+        
+      \paragraph{Linear Combination:} A form of combining two or more functions by  adding them up, as in $f_{(x)}= g_{(x)} + h_{(x)}$.
+       
+      \paragraph{Trigonometric:} relating to the relationship between or mathematics of angles. Typically referring to $\sin(x)$, $\cos(x)$ or $\tan(x)$, but also hyperbolae.
+      
+      \paragraph{Independent Variable:} Typically denoted \textit{x}, here \textit{xVal} or \textit{xValue}, the variable that is independent of any other on a graph, function or \textit{Data Set}. Other variables' values will be based on this variable.
+      
+      \paragraph{Dependent Variable:} typically denoted \textit{y}, here \textit{yVal} or \textit{\textit{yValue}}, is dependent on another variable, typically the \textit{independent variable}. The value of a function or \textit{Data Set} is a dependent variable.
+      
+      \paragraph{Regression:} A method of Statistical Analysis to extract the equasion of the specified type of function that best describes the input \textit{data points}.
+      
+      \paragraph{Dimension:} Of a function, the number of \textit{independent variables} the function value depends on.
+
+
 \end{document}
+

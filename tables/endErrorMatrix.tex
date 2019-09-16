@@ -1,0 +1,25 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+  
+  \begin{table}[h]
+    \centering
+    \caption{Illustration of the \textit{end-tail} effect within the derivative matrix. Given a number of calculated derivatives of $maxDepth$ (here $=5$), the last $maxDepth$ data points are vulnerable to false interpretations due to the end-tail, shown as the bold \textbf{X}. These derivative values default to zero in the implemented derivative matrix, but conceptually represent unknown values that should be considered undefined. This begins with the very last data point that has no successive data point to allow calculating its derivative. Much like the POI-tail, this propagates through the matrix to affect the last $maxDepth$ data points.\\
+    Note how the derivDepth changes towards the last data point. The recommended and implemented solution is to "smooth over" these data pints and simply assign the last well defined derivDeppth (here that of $index=0$ which is $3$).}
+    \begin{tabularx}{0.65\linewidth}{ X | c c c c c c }
+      index & 0 & 1 & 2 & 3 & 4 & 5 \\
+      xValue & 0.0 & 1.0 & 2.0 & 3.0 & 4.0 & 5.0 \\
+      \hline \hline
+      yValue & 0.0 & 1.0 & 8.0 & 27.0 & 64.0 & 125.0 \\
+      \hline
+      deriv 1 & 1.0 & 7.0 & 19.0 & 37.0 & 61.0 & \textbf{X} \\
+      deriv 2 & 6.0 & 12.0 & 18.0 & 24.0 & \textbf{X} & \textbf{X} \\
+      deriv 3 & 6.0 & 6.0 & 6.0 & \textbf{X} & \textbf{X} & \textbf{X} \\
+      deriv 4 & 0.0 & 0.0 & \textbf{X} & \textbf{X} & \textbf{X} & \textbf{X} \\
+      deriv 5 & 0.0 & \textbf{X} & \textbf{X} & \textbf{X} & \textbf{X} & \textbf{X} \\
+      \hline
+      derivDepth & 3  & 3 & 3 & 2 & 1 & 0 \\
+    \end{tabularx}
+  \label{tbl:mtrx:endError}
+  \end{table}
+  
+\end{document}
